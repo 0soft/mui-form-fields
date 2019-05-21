@@ -1,0 +1,18 @@
+{
+  "rootDir": "../..",
+  "coverageDirectory": "<rootDir>/tests/__coverage__/",
+  "setupFiles": ["<rootDir>/config/jest/setup.js"],
+  "roots": ["<rootDir>/src", "<rootDir>/tests"],
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "<rootDir>/config/jest/preprocessor.js"
+  },
+  "transformIgnorePatterns": ["/node_modules/"],
+  "testRegex": "/tests/.*\\.(ts|tsx)$",
+  "moduleDirectories": ["node_modules"],
+  "globals": {
+    "DEVELOPMENT": false,
+    "FAKE_SERVER": false
+  },
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
+}

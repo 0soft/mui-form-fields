@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+package-lock.json
+
+# production bundle
+dist
+
+# misc
+.DS_Store
+npm-debug.log*
+
+#tests
+tests/__coverage__
+tests/__snapshots__
+
+*.d.ts

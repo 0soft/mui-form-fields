@@ -1,0 +1,83 @@
+{
+  "name": "mui-form-fields",
+  "version": "1.0.0",
+  "description": "Mui form fields is open library of material-ui and react-final-form.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --watch --coverage --config=./config/jest/config.json",
+    "build": "NODE_ENV=production node --max-old-space-size=8192 ./node_modules/.bin/webpack --mode production",
+    "gettext-pt-br": "ttag update --discover=t src/assets/i18n/pt-BR.po src",
+    "gettext": "npm run gettext-pt-br",
+    "prettier": "prettier --parser typescript --write './**/*.{ts,tsx}'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0soft/mui-form-fields.git"
+  },
+  "author": "0soft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0soft/mui-form-fields/issues"
+  },
+  "homepage": "https://github.com/0soft/mui-form-fields#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "core-js": "^3.0.1",
+    "moment": "^2.24.0",
+    "po-gettext-loader": "^0.1.1",
+    "ttag": "^1.7.8"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^3.2.0",
+    "@material-ui/icons": "^3.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.7",
+    "@storybook/addon-console": "^1.1.0",
+    "@storybook/addon-info": "^5.0.7",
+    "@storybook/addon-links": "^5.0.7",
+    "@storybook/addon-viewport": "^5.0.7",
+    "@storybook/addons": "^5.0.7",
+    "@storybook/react": "^5.0.7",
+    "@types/enzyme": "^3.9.1",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "@types/storybook__react": "^4.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-webpack-alias": "^3.3.3",
+    "prettier": "^1.17.0",
+    "prettier-check": "^2.0.0",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "sass-loader": "^7.1.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.3",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1",
+    "@material-ui/core": "^3.2.0",
+    "@material-ui/icons": "^3.0.1",
+    "jest": "^24.7.1"
+  }
+}
