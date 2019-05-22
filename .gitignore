@@ -1,3 +1,4 @@
+.vscode
 # dependencies
 node_modules
 package-lock.json
@@ -10,7 +11,7 @@ dist
 npm-debug.log*
 
 #tests
-tests/__coverage__
-tests/__snapshots__
+__coverage__
+__snapshots__
 
 *.d.ts

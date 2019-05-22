@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import * as React from 'react';
-import Loader from '../src/Loader';
+import FormField from '../../src/components/FormField';
 
-it('Loader is rendered', () => {
-  const wrapper = shallow(<Loader />);
+it('FormField is rendered', () => {
+  const wrapper = shallow(<FormField name="test" render={() => {}} />);
   expect(shallowToJson(wrapper)).toMatchSnapshot();
 });

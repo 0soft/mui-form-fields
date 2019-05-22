@@ -14,5 +14,6 @@
     "DEVELOPMENT": false,
     "FAKE_SERVER": false
   },
-  "snapshotSerializers": ["enzyme-to-json/serializer"]
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "setupFilesAfterEnv": ["jest-extended"]
 }

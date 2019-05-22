@@ -12,8 +12,6 @@
   "scripts": {
     "test": "jest --watch --coverage --config=./config/jest/config.json",
     "build": "NODE_ENV=production node --max-old-space-size=8192 ./node_modules/.bin/webpack --mode production",
-    "gettext-pt-br": "ttag update --discover=t src/assets/i18n/pt-BR.po src",
-    "gettext": "npm run gettext-pt-br",
     "prettier": "prettier --parser typescript --write './**/*.{ts,tsx}'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -31,9 +29,9 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "core-js": "^3.0.1",
+    "final-form": "^4.13.0",
     "moment": "^2.24.0",
-    "po-gettext-loader": "^0.1.1",
-    "ttag": "^1.7.8"
+    "react-final-form": "^5.1.0"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.2.0",
@@ -68,6 +66,7 @@
     "enzyme-to-json": "^3.3.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
+    "jest-extended": "^0.11.1",
     "jest-webpack-alias": "^3.3.3",
     "prettier": "^1.17.0",
     "prettier-check": "^2.0.0",
