@@ -4,7 +4,7 @@ import { omit } from '../utils';
 import FormField from './FormField';
 import { FieldInputProps } from 'react-final-form';
 
-interface FormTextFieldProps {
+interface FormSwitchFieldProps {
   icon?: string | React.ReactElement;
   name: string;
   label: string;
@@ -14,7 +14,7 @@ interface FormTextFieldProps {
   className?: string;
 }
 
-const FormSwitchField: React.SFC<FormTextFieldProps> = ({
+const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
   icon,
   name,
   label,
