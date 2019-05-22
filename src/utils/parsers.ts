@@ -1,17 +1,25 @@
 import { getFnc } from './index';
 
+export type FieldParser = (value: any) => any | undefined;
+
 interface Parsers {
-  integer: ((value: any, name: string) => any) | null | undefined;
-  float: ((value: any, name: string) => any) | null | undefined;
+  integer: FieldParser;
+  float: FieldParser;
 }
 
 const parsers: Parsers = {
   float: (value: any) => {
+    console.log(
+      (value || '')
+        .toString()
+        .replace(new RegExp('[^0-9$,-]', 'g'), '')
+        .replace('.', '.')
+    );
     return (
       parseFloat(
         (value || '')
           .toString()
-          .replace(new RegExp('[^0-9$.-]', 'g'), '')
+          .replace(new RegExp('[^0-9$,-]', 'g'), '')
           .replace('.', '.')
       ) || 0
     );

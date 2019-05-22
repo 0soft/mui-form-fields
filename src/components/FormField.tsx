@@ -6,17 +6,19 @@ import {
   handleParser,
   handleValidator,
   FieldValidator,
+  FieldFormatter,
+  FieldParser,
 } from '../utils';
 
 interface FormFieldProps {
   icon?: string | React.ReactElement;
-  hasIcon?: Boolean;
+  hasIcon?: boolean;
   name: string;
   render: Function;
   type?: string;
   iconPadding?: string;
-  format?: ((value: any, name: string) => any) | null | undefined | string;
-  parse?: ((value: any, name: string) => any) | null | undefined | string;
+  format?: FieldFormatter | string;
+  parse?: FieldParser | string;
   validate?: FieldValidator | string;
   className?: string | undefined;
 }

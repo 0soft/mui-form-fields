@@ -20,7 +20,7 @@ function loadStories() {
 addParameters({
   options: {
     name: 'App',
-    theme: themes.dark,
+    theme: themes.normal,
   },
 });
 

@@ -1,11 +1,13 @@
 import { getFnc } from './index';
 import moment from 'moment';
 
+export type FieldFormatter = (value: any) => any | undefined;
+
 interface Formatters {
-  percentage: ((value: any, name: string) => any) | null | undefined;
-  money: ((value: any, name: string) => any) | null | undefined;
-  string: ((value: any, name: string) => any) | null | undefined;
-  date: ((value: any, name: string) => any) | null | undefined;
+  percentage: FieldFormatter;
+  money: FieldFormatter;
+  string: FieldFormatter;
+  date: FieldFormatter;
 }
 
 const number = (

@@ -1,3 +1,3 @@
-import Loader from './Loader';
+import FormTextField from './components/FormTextField';
 
-export { Loader };
+export { FormTextField };

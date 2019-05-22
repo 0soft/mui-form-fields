@@ -69,7 +69,7 @@ export const handleValidator = (validate: string) => {
   let validatorFnc: FieldValidator[] = [];
 
   validate.split('|').forEach((it: string) => {
-    switch (it.split(':')[0]) {
+    switch (it.split(':')[0].trim()) {
       case 'required':
         return validatorFnc.push(getFnc(validators, 'required'));
       case 'number':
@@ -82,7 +82,9 @@ export const handleValidator = (validate: string) => {
         if (it.split(':')[1]) {
           const fnMin = getFnc(validators, 'min');
           if (fnMin) {
-            return validatorFnc.push(fnMin && fnMin(Number(it.split(':')[1])));
+            return validatorFnc.push(
+              fnMin && fnMin(Number(it.split(':')[1].trim()))
+            );
           }
           return;
         }
