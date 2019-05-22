@@ -26,16 +26,16 @@ describe('Validators', () => {
   });
 
   describe('Number', () => {
-    const fncRequired = handleValidators('number');
+    const fncNumber = handleValidators('number');
     it('check invalid numbers', () => {
       ['a', NaN].forEach(it => {
-        expect(fncRequired(it)).toBeDefined();
+        expect(fncNumber(it)).toBeDefined();
       });
     });
 
     it('check valid numbers', () => {
       ['123', 120.59, 120].forEach(it => {
-        expect(fncRequired(it)).toBeUndefined();
+        expect(fncNumber(it)).toBeUndefined();
       });
     });
   });
