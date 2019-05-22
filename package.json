@@ -31,6 +31,7 @@
     "classnames": "^2.2.6",
     "core-js": "^3.0.1",
     "final-form": "^4.13.0",
+    "is-plain-object": "^3.0.0",
     "moment": "^2.24.0",
     "react-final-form": "^5.1.0"
   },

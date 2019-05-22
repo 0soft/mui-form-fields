@@ -104,6 +104,7 @@ FormTextField.defaultProps = {
   hasIcon: true,
   disabled: false,
   multiline: false,
+  rows: 4,
   InputProps: {},
 };
 
