@@ -9,12 +9,6 @@ interface Parsers {
 
 const parsers: Parsers = {
   float: (value: any) => {
-    console.log(
-      (value || '')
-        .toString()
-        .replace(new RegExp('[^0-9$,-]', 'g'), '')
-        .replace('.', '.')
-    );
     return (
       parseFloat(
         (value || '')
