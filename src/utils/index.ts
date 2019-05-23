@@ -2,10 +2,23 @@ import isPlainObject from 'is-plain-object';
 import handleParser, { FieldParser } from './parsers';
 import handleValidator, { FieldValidator } from './validators';
 import handleFormatter, { FieldFormatter } from './formatters';
+import { createNumberMask as _createNumberMask } from 'text-mask-addons';
 
 interface Key {
   [key: string]: any;
 }
+
+export const createNumberMask = (options: Object = {}) => {
+  const opt = {
+    prefix: '$ ',
+    thousandsSeparatorSymbol: ',',
+    decimalSymbol: '.',
+    allowNegative: true,
+    ...options,
+  };
+
+  return _createNumberMask(opt);
+};
 
 export const getFnc = function<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
