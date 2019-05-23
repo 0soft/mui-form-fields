@@ -44,6 +44,13 @@ storiesOf('FormTextField', module)
                 label="Disabled"
                 disabled
               />
+              <Divider variant="inset" />
+              <FormTextField
+                icon="notes"
+                name="multiline"
+                label="Multiline"
+                multiline
+              />
             </React.Fragment>
           );
         }}

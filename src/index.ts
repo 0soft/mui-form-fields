@@ -1,3 +1,4 @@
 import FormTextField from './components/FormTextField';
+import FormSwitchField from './components/FormSwitchField';
 
-export { FormTextField };
+export { FormTextField, FormSwitchField };
