@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Chip, Button } from '@material-ui/core';
 import AttachmentIcon from '@material-ui/icons/Attachment';
-import { FieldInputProps, FieldPlainState } from 'react-final-form';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
 import FormField from './FormField';
 import { setFocus } from '../utils';
 
@@ -57,7 +57,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
         meta,
       }: {
         input: FieldInputProps<HTMLElement>;
-        meta: FieldPlainState;
+        meta: FieldMetaState;
       }) => {
         React.useEffect(() => {
           const files = acceptedFiles.filter(
