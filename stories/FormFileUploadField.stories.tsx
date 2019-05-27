@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Divider, Button } from '@material-ui/core';
 import { Form } from 'react-final-form';
-import { FormFielUploadField } from '../src';
+import { FormFileUploadField } from '../src';
 
 const FormTest = ({
   onSubmit,
@@ -37,27 +37,27 @@ const FormTest = ({
   />
 );
 
-storiesOf('FormFielUploadField', module)
+storiesOf('FormFileUploadField', module)
   .add('default', () => {
     return (
       <FormTest
         render={({ values }: { values: any }) => {
           return (
             <React.Fragment>
-              <FormFielUploadField
+              <FormFileUploadField
                 icon="attachment"
                 name="upload"
                 label="Single"
               />
               <Divider variant="inset" />
-              <FormFielUploadField
+              <FormFileUploadField
                 icon="attachment"
                 name="multiple"
                 label="Multiple"
                 multiple
               />
               <Divider variant="inset" />
-              <FormFielUploadField
+              <FormFileUploadField
                 icon="attachment"
                 name="disabled"
                 label="Disabled"
@@ -77,7 +77,7 @@ storiesOf('FormFielUploadField', module)
         render={({ values }: { values: any }) => {
           return (
             <React.Fragment>
-              <FormFielUploadField
+              <FormFileUploadField
                 icon="attachment"
                 name="upload"
                 label="Single"
