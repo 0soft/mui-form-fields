@@ -42,7 +42,7 @@ const FormField: React.SFC<FormFieldProps> = ({
     >
       {hasIcon && (
         <ListItemIcon style={{ paddingTop: iconPadding }}>
-          {icon ? (
+          {icon !== undefined ? (
             typeof icon === 'string' ? (
               <Icon>{icon}</Icon>
             ) : (

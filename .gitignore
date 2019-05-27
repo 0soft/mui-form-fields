@@ -1,7 +1,6 @@
 .vscode
 # dependencies
 node_modules
-package-lock.json
 
 # production bundle
 dist
