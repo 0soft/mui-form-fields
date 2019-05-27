@@ -33,6 +33,7 @@
     "final-form": "^4.13.0",
     "is-plain-object": "^3.0.0",
     "moment": "^2.24.0",
+    "react-dropzone": "^10.1.5",
     "react-final-form": "^5.1.0"
   },
   "peerDependencies": {
