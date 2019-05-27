@@ -7,7 +7,7 @@ import {
   setFocus,
 } from '../utils';
 import FormField from './FormField';
-import { FieldInputProps, FieldPlainState } from 'react-final-form';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
 
 interface FormTextFieldProps {
   icon?: string | React.ReactElement;
@@ -58,7 +58,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
         meta,
       }: {
         input: FieldInputProps<HTMLElement>;
-        meta: FieldPlainState;
+        meta: FieldMetaState;
       }) => {
         value = value || input.value;
         return (
