@@ -9,14 +9,10 @@ interface Parsers {
 
 const parsers: Parsers = {
   float: (value: any) => {
-    return (
-      parseFloat(
-        (value || '')
-          .toString()
-          .replace(new RegExp('[^0-9$,-]', 'g'), '')
-          .replace('.', '.')
-      ) || 0
-    );
+    const response = (value || '')
+      .toString()
+      .replace(new RegExp('[^0-9.-]', 'g'), '');
+    return parseFloat(response) || 0;
   },
   integer: (value: any) => {
     let parsed = parseInt(value, 10);

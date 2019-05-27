@@ -50,6 +50,7 @@ const formatters: Formatters = {
     return `${formatted}%`;
   },
   money: (value: any) => {
+    if (value == undefined) return '';
     let formatted = number(value);
 
     if (!formatted) {
