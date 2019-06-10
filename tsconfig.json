@@ -18,7 +18,8 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "esModuleInterop": true
   },
   "exclude": ["./node_modules", "build", "config", "tests"],
   "types": ["typePatches"]
