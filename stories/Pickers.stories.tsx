@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Divider } from '@material-ui/core';
-import { DatePicker, DateTimePicker } from '../src/components/Pickers';
+import {
+  DatePicker,
+  DateTimePicker,
+  DateRangePicker,
+} from '../src/components/Pickers';
 
 const defaulStyleDivider = { marginTop: '15px', marginBottom: '10px' };
 
@@ -55,6 +59,17 @@ storiesOf('Pickers', module)
         <DateTimePicker icon="today" label="Nobox" nobox />
         <Divider style={defaulStyleDivider} />
         <DateTimePicker icon="today" label="AM / PM" ampm />
+      </React.Fragment>
+    );
+  })
+  .add('DateRangePicker', () => {
+    return (
+      <React.Fragment>
+        <DateRangePicker icon="today" label="Label" />
+        <Divider style={defaulStyleDivider} />
+        <DateRangePicker icon="today" label="AutoOK" autoOk />
+        <Divider style={defaulStyleDivider} />
+        <DateRangePicker icon="today" label="Clearable" clearable />
       </React.Fragment>
     );
   });

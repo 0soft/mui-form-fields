@@ -150,7 +150,7 @@ DatePicker.defaultProps = {
   InputProps: {},
   nobox: false,
   fullWidth: true,
-  autoOk: true,
+  autoOk: false,
   clearLabel: 'Clear',
   clearable: false,
 };

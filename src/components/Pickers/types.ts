@@ -36,6 +36,25 @@ export interface DatePickerProps {
   views?: ('year' | 'date' | 'month')[];
 }
 
+export interface DateRangePickerProps
+  extends Omit<
+    DatePickerProps,
+    'labelFunc' | 'value' | 'onInit' | 'onChange' | 'views'
+  > {
+  value?: RangePicker | undefined;
+  labelFunc?: ((date: RangePicker, invalidLabel: string) => string) | undefined;
+  onChange?: ((date: RangePicker) => void) | undefined;
+  onInit?: ((date: RangePicker) => void) | undefined;
+  classes: {
+    highlight: string;
+    firstHighlight: string;
+    endHighlight: string;
+    day: string;
+    nonCurrentMonthDay: string;
+    highlightNonCurrentMonthDay: string;
+  };
+}
+
 export interface DateTimePickerProps extends DatePickerProps {
   ampm?: boolean;
 }
