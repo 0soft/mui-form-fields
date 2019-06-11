@@ -35,31 +35,6 @@ export interface DatePickerProps {
   error?: boolean;
 }
 
-export interface DateTimePickerProps {
-  icon?: React.ReactNode;
-  label?: React.ReactNode;
-  value?: MaterialUiPickersDate | string;
-  disabled?: boolean;
-  labelFunc?:
-    | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
-    | undefined;
-  onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
-  TextFieldComponent?: React.ComponentType<TextFieldProps>;
-  helperText?: React.ReactNode;
-  maxDate?: MaterialUiPickersDate;
-  minDate?: MaterialUiPickersDate;
-  clearable?: boolean;
-  InputProps?: TextFieldProps['InputProps'];
-  legend?: React.ReactNode;
-  nobox?: boolean;
-  clearLabel?: React.ReactNode;
-  className?: string;
-  onInit?: ((date: MaterialUiPickersDate) => void) | undefined;
-  fullWidth?: boolean;
-  autoOk?: boolean;
-  iconStyle?: Object;
-  legendStyle?: Object;
-  containerStyle?: Object;
-  error?: boolean;
+export interface DateTimePickerProps extends DatePickerProps {
   ampm?: boolean;
 }

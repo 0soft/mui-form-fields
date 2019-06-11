@@ -4,12 +4,12 @@ import moment from 'moment';
 import MomentUtils from '@date-io/moment';
 import {
   MuiPickersUtilsProvider,
-  DateTimePicker as DateTimePickerBase,
+  DatePicker as DatePickerBase,
 } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
-import { DateTimePickerProps } from './types';
+import { DatePickerProps } from './types';
 
-const DateTimePicker: React.SFC<DateTimePickerProps> = ({
+const MonthPicker: React.SFC<DatePickerProps> = ({
   icon,
   label,
   value,
@@ -33,7 +33,6 @@ const DateTimePicker: React.SFC<DateTimePickerProps> = ({
   legendStyle,
   containerStyle,
   error,
-  ampm,
 }) => {
   const [selected, setSelected] = React.useState<MaterialUiPickersDate>(null);
 
@@ -45,15 +44,15 @@ const DateTimePicker: React.SFC<DateTimePickerProps> = ({
   const getPicker = () => {
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
-        <DateTimePickerBase
+        <DatePickerBase
           className={className}
-          ampm={ampm}
           label={label}
           value={selected}
+          views={['month']}
           labelFunc={
             labelFunc ||
             function(date) {
-              return date ? date.format('LLL') : 'No Date';
+              return date ? date.format('MMMM YYYY') : 'No Date';
             }
           }
           onChange={onChangeInternal}
@@ -131,7 +130,7 @@ const DateTimePicker: React.SFC<DateTimePickerProps> = ({
   );
 };
 
-DateTimePicker.defaultProps = {
+MonthPicker.defaultProps = {
   disabled: false,
   InputProps: {},
   nobox: false,
@@ -139,7 +138,6 @@ DateTimePicker.defaultProps = {
   autoOk: true,
   clearLabel: 'Clear',
   clearable: false,
-  ampm: false,
 };
 
-export default DateTimePicker;
+export default MonthPicker;

@@ -135,7 +135,7 @@ DatePicker.defaultProps = {
   nobox: false,
   fullWidth: true,
   autoOk: true,
-  clearLabel: 'Remove',
+  clearLabel: 'Clear',
   clearable: false,
 };
 
