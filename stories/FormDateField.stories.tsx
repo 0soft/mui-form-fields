@@ -59,6 +59,20 @@ storiesOf('FormDateField', module).add('default', () => {
               label="Disabled"
               disabled
             />
+            <Divider variant="inset" />
+            <FormDateField
+              icon="today"
+              name="month"
+              label="Month"
+              views={['month']}
+            />
+            <Divider variant="inset" />
+            <FormDateField
+              icon="today"
+              name="year"
+              label="Year"
+              views={['year']}
+            />
           </React.Fragment>
         );
       }}

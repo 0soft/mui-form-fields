@@ -20,6 +20,7 @@ interface FormDateFieldProps {
     | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
     | undefined;
   onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
+  views?: ('year' | 'date' | 'month')[];
 }
 
 const FormDateField: React.SFC<FormDateFieldProps> = ({
@@ -34,6 +35,7 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
   min,
   labelFunc,
   onChange,
+  views,
 }) => {
   return (
     <FormField
@@ -77,6 +79,7 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
             <DatePicker
               nobox
               fullWidth
+              views={views}
               {...input}
               onInit={input.onChange}
               error={Boolean(meta.touched && meta.error)}

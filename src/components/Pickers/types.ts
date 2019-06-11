@@ -33,6 +33,7 @@ export interface DatePickerProps {
   legendStyle?: Object;
   containerStyle?: Object;
   error?: boolean;
+  views?: ('year' | 'date' | 'month')[];
 }
 
 export interface DateTimePickerProps extends DatePickerProps {

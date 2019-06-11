@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Divider } from '@material-ui/core';
-import {
-  DatePicker,
-  DateTimePicker,
-  MonthPicker,
-} from '../src/components/Pickers';
+import { DatePicker, DateTimePicker } from '../src/components/Pickers';
 
 const defaulStyleDivider = { marginTop: '15px', marginBottom: '10px' };
 
@@ -16,6 +12,10 @@ storiesOf('Pickers', module)
         <DatePicker icon="today" label="Label" />
         <Divider style={defaulStyleDivider} />
         <DatePicker icon="today" legend="Legend" />
+        <Divider style={defaulStyleDivider} />
+        <DatePicker icon="today" label="Month" views={['month']} />
+        <Divider style={defaulStyleDivider} />
+        <DatePicker icon="today" label="Year" views={['year']} />
         <Divider style={defaulStyleDivider} />
         <DatePicker label="No icon" />
         <Divider style={defaulStyleDivider} />
@@ -55,27 +55,6 @@ storiesOf('Pickers', module)
         <DateTimePicker icon="today" label="Nobox" nobox />
         <Divider style={defaulStyleDivider} />
         <DateTimePicker icon="today" label="AM / PM" ampm />
-      </React.Fragment>
-    );
-  })
-  .add('MonthPicker', () => {
-    return (
-      <React.Fragment>
-        <MonthPicker icon="today" label="Label" />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" legend="Legend" />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker label="No icon" />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" label="Disabled" disabled />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" label="Set Value" value="2019-02-26" />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" label="Invalid Value" value="ADDDs" />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" label="Clearable" clearable />
-        <Divider style={defaulStyleDivider} />
-        <MonthPicker icon="today" label="Nobox" nobox />
       </React.Fragment>
     );
   });

@@ -33,6 +33,7 @@ const DatePicker: React.SFC<DatePickerProps> = ({
   legendStyle,
   containerStyle,
   error,
+  views,
 }) => {
   const [selected, setSelected] = React.useState<MaterialUiPickersDate>(null);
 
@@ -48,10 +49,25 @@ const DatePicker: React.SFC<DatePickerProps> = ({
           className={className}
           label={label}
           value={selected}
+          views={views}
           labelFunc={
             labelFunc ||
             function(date) {
-              return date ? date.format('LL') : 'No Date';
+              if (date) {
+                if (views === undefined || views.indexOf('date') >= 0) {
+                  return date.format('LL');
+                }
+
+                if (views.indexOf('month') >= 0) {
+                  return date.format('MMMM YYYY');
+                }
+
+                if (views.indexOf('year') >= 0) {
+                  return date.format('YYYY');
+                }
+              }
+
+              return 'No Date';
             }
           }
           onChange={onChangeInternal}
