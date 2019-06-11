@@ -10,6 +10,7 @@ import FormSwitchField from './components/FormSwitchField';
 import FormButtonField from './components/FormButtonField';
 import FormChipField from './components/FormChipField';
 import FormFileUploadField from './components/FormFileUploadField';
+import FormDateField from './components/FormDateField';
 
 export {
   FormIntegerField,
@@ -24,4 +25,5 @@ export {
   FormShowField,
   FormChipField,
   FormFileUploadField,
+  FormDateField,
 };

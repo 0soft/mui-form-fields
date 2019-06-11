@@ -1,7 +1,10 @@
 import isPlainObject from 'is-plain-object';
-import handleParser, { FieldParser } from './parsers';
+import handleParser, { FieldParser, ParserOptions } from './parsers';
 import handleValidator, { FieldValidator } from './validators';
-import handleFormatter, { FieldFormatter } from './formatters';
+import handleFormatter, {
+  FieldFormatter,
+  FormatterOptions,
+} from './formatters';
 import { createNumberMask as _createNumberMask } from 'text-mask-addons';
 
 interface Key {
@@ -77,4 +80,6 @@ export {
   FieldValidator,
   FieldFormatter,
   FieldParser,
+  ParserOptions,
+  FormatterOptions,
 };

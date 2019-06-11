@@ -1,10 +1,19 @@
 import { getFnc } from './index';
+import moment from 'moment';
 
 export type FieldParser = (value: any) => any | undefined;
+export type ParserOptions =
+  | 'integer'
+  | 'float'
+  | 'money'
+  | 'percentage'
+  | 'date'
+  | undefined;
 
 interface Parsers {
   integer: FieldParser;
   float: FieldParser;
+  date: FieldParser;
 }
 
 const parsers: Parsers = {
@@ -18,19 +27,30 @@ const parsers: Parsers = {
     let parsed = parseInt(value, 10);
     return isNaN(parsed) ? null : parsed;
   },
+  date: (value: any) => {
+    if (!value) {
+      return value;
+    }
+    return moment(value, [
+      'YYYY-MM-DD',
+      'DD/MM/YYYY',
+      'DD/MM/YY',
+      'DDMMYYYY',
+      'DD-MM-YYYY',
+    ]);
+  },
 };
 
-export const handleParser = (parse: string) => {
-  switch (parse) {
-    case 'integer':
-      return getFnc(parsers, 'integer');
-    case 'float':
-    case 'money':
-    case 'percentage':
-      return getFnc(parsers, 'float');
-    default:
-      return undefined;
+export const handleParser = (parse: ParserOptions) => {
+  if (parse === undefined) {
+    return undefined;
   }
+
+  if (parse === 'percentage' || parse === 'money') {
+    parse = 'float';
+  }
+
+  return getFnc(parsers, parse);
 };
 
 export default handleParser;

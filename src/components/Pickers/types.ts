@@ -26,10 +26,11 @@ export interface DatePickerProps {
   nobox?: boolean;
   clearLabel?: React.ReactNode;
   className?: string;
-  onInit?: ((date: MaterialUiPickersDate) => any) | undefined;
+  onInit?: ((date: MaterialUiPickersDate) => void) | undefined;
   fullWidth?: boolean;
   autoOk?: boolean;
   iconStyle?: Object;
   legendStyle?: Object;
   containerStyle?: Object;
+  error?: boolean;
 }

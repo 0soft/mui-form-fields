@@ -32,6 +32,7 @@ const DatePicker: React.SFC<DatePickerProps> = ({
   iconStyle,
   legendStyle,
   containerStyle,
+  error,
 }) => {
   const [selected, setSelected] = React.useState<MaterialUiPickersDate>(null);
 
@@ -64,6 +65,7 @@ const DatePicker: React.SFC<DatePickerProps> = ({
           clearable={clearable}
           clearLabel={clearLabel}
           InputProps={InputProps}
+          error={error}
         />
       </MuiPickersUtilsProvider>
     );

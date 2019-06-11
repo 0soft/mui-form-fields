@@ -29,11 +29,6 @@ const FormButtonField: React.SFC<FormButtonFieldProps> = ({
             style={{ width: '100%', display: 'flex', flexDirection: 'column' }}
           >
             <span
-              // padding-top: calc(0.375rem + 1px);
-              // padding-bottom: calc(0.375rem + 1px);
-              // margin-bottom: 0;
-              // font-size: inherit;
-              // line-height: 1.5;
               style={{
                 marginBottom: '0.3125rem',
                 fontSize: '0.75rem',
