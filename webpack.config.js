@@ -1,12 +1,16 @@
 const path = require('path');
+const packageinfo = require("read-pkg-up").sync().package;
+const camelCase = require("camelcase");
+
 
 module.exports = {
   entry: './src/index.ts',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.js',
-    libraryTarget: 'umd',
+    path: path.resolve(path.join(__dirname, '.', 'dist')),
+    filename: 'mui-form-fields.js',
     library: 'MuiFormFields',
+    libraryTarget: 'umd',
+    globalObject: 'this',
   },
   module: {
     rules: [
@@ -32,4 +36,19 @@ module.exports = {
       path.join(__dirname, 'node_modules'),
     ],
   },
+  externals: Object.keys(packageinfo.peerDependencies).map(k => {
+    // Aliases for some specific libs
+    const root = {
+      moment: "moment",
+    }[k] || camelCase(k.replace("@material-ui/", ""), {pascalCase: true});
+
+    return {
+      [k]: {
+        root: camelCase(k.replace("@material-ui/", ""), {pascalCase: true}),
+        amd: k,
+        commonjs: k,
+        commonjs2: k,
+      },
+    }
+  }),
 };
