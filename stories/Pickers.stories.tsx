@@ -5,6 +5,7 @@ import {
   DatePicker,
   DateTimePicker,
   DateRangePicker,
+  WeekPicker,
 } from '../src/components/Pickers';
 
 const defaulStyleDivider = { marginTop: '15px', marginBottom: '10px' };
@@ -67,9 +68,22 @@ storiesOf('Pickers', module)
       <React.Fragment>
         <DateRangePicker icon="today" label="Label" />
         <Divider style={defaulStyleDivider} />
+        <DateRangePicker icon="today" label="Month" views={["month"]} />
+        <Divider style={defaulStyleDivider} />
         <DateRangePicker icon="today" label="AutoOK" autoOk />
         <Divider style={defaulStyleDivider} />
         <DateRangePicker icon="today" label="Clearable" clearable />
+      </React.Fragment>
+    );
+  })
+  .add('WeekPicker', () => {
+    return (
+      <React.Fragment>
+        <WeekPicker icon="today" label="Label" />
+        <Divider style={defaulStyleDivider} />
+        <WeekPicker icon="today" label="AutoOK" autoOk />
+        <Divider style={defaulStyleDivider} />
+        <WeekPicker icon="today" label="Clearable" clearable />
       </React.Fragment>
     );
   });

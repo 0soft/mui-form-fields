@@ -8,10 +8,10 @@ import {
   DatePicker as DatePickerBase,
 } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
-import { DateRangePickerProps, RangePicker } from './types';
+import { WeekPickerProps, RangePicker } from './types';
 import styles from './styles';
 
-const DateRangePicker: React.SFC<DateRangePickerProps> = ({
+const WeekPicker: React.SFC<WeekPickerProps> = ({
   icon,
   label,
   value,
@@ -36,7 +36,6 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
   containerStyle,
   error,
   classes,
-  views,
 }) => {
   const [selected, setSelected] = React.useState<RangePicker>({
     begin: null,
@@ -46,12 +45,10 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
     begin: null,
     end: null,
   });
-  const [hover, setHover] = React.useState<MaterialUiPickersDate>(null);
-
+  
   const onChangeInternal = (date: MaterialUiPickersDate) => {
     if (!date) {
       setSelected({ begin: null, end: null });
-      setHover(null);
     }
   };
 
@@ -95,24 +92,18 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
       {
         onClick: (e: React.MouseEvent) => {
           let selectedDate = { ...selected };
-          if (
-            !selectedDate.begin ||
-            Boolean(day && moment(day).isBefore(selectedDate.begin, 'day'))
-          ) {
-            selectedDate = { begin: day ? moment(day) : null, end: null };
-          } else if (!selected.end) {
-            selectedDate = { ...selected, end: day ? moment(day) : null };
-          } else {
-            selectedDate = { begin: day ? moment(day) : null, end: null };
+          if (day) {
+            selectedDate = {
+              begin: moment(day).startOf('week'),
+              end: moment(day).endOf('week'),
+            }
           }
-
-          if (!autoOk || !selectedDate.end) {
+         
+          if (!autoOk) {
             e.stopPropagation();
           }
           setSelected(selectedDate);
         },
-        onMouseEnter: (e: React.MouseEvent) =>
-          setHover(day ? moment(day) : null),
       },
       <div className={wrapperClassName}>
         <IconButton className={dayClassName}>
@@ -121,8 +112,6 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
       </div>
     );
   };
-
-  const formatDate = (date: MaterialUiPickersDate) => date && date.format('LL');
 
   const getPicker = () => {
     return (
@@ -137,8 +126,7 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
               return labelFunc(selected, invalid);
             } else {
               if (date) {
-                const { begin, end } = selected;
-                return [begin, end].map(formatDate).join(' - ');
+                return `Week of ${date.startOf('week').format('LL')}`;
               }
 
               return 'No Date';
@@ -154,7 +142,6 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
           clearable={clearable}
           clearLabel={clearLabel}
           InputProps={InputProps}
-          views={views}
           error={error}
           autoOk={autoOk}
         />
@@ -165,24 +152,19 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
   React.useEffect(() => {
     let internalValue = { ...selected };
     let beginValue =
-      (value && value.begin) || (clearable ? null : moment().startOf('month'));
-    let endValue =
-      (value && value.end) || (clearable ? null : moment().endOf('month'));
+      (value && value.begin) || (clearable ? null : moment().startOf('week'));
+    let endValue = null;
 
     if (typeof beginValue === 'string') {
-      beginValue = moment(beginValue);
+      beginValue = moment(beginValue).startOf('week');
     }
 
     if (beginValue && !beginValue.isValid()) {
-      beginValue = moment().startOf('month');
+      beginValue = moment().startOf('week');     
     }
 
-    if (typeof endValue === 'string') {
-      endValue = moment(endValue);
-    }
-
-    if (endValue && !endValue.isValid()) {
-      endValue = moment().endOf('month');
+    if (beginValue) {
+      endValue = moment(beginValue).endOf('week');
     }
 
     internalValue = { begin: beginValue, end: endValue };
@@ -191,11 +173,10 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
   }, []);
 
   React.useEffect(() => {
-    setRange({ begin: selected.begin, end: selected.end || hover });
-  }, [selected, hover]);
-
-  React.useEffect(() => {
     const { begin, end } = selected;
+    
+    setRange({ begin, end });
+
     if ((!begin && !end) || (begin && end)) {
       onChange && onChange(selected);
     }
@@ -244,7 +225,7 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
   );
 };
 
-DateRangePicker.defaultProps = {
+WeekPicker.defaultProps = {
   disabled: false,
   InputProps: {},
   nobox: false,
@@ -254,4 +235,4 @@ DateRangePicker.defaultProps = {
   clearable: false,
 };
 
-export default withStyles(styles)(DateRangePicker);
+export default withStyles(styles)(WeekPicker);

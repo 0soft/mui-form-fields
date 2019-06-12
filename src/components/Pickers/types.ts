@@ -39,7 +39,7 @@ export interface DatePickerProps {
 export interface DateRangePickerProps
   extends Omit<
     DatePickerProps,
-    'labelFunc' | 'value' | 'onInit' | 'onChange' | 'views'
+    'labelFunc' | 'value' | 'onInit' | 'onChange'
   > {
   value?: RangePicker | undefined;
   labelFunc?: ((date: RangePicker, invalidLabel: string) => string) | undefined;
@@ -54,6 +54,8 @@ export interface DateRangePickerProps
     highlightNonCurrentMonthDay: string;
   };
 }
+
+export interface WeekPickerProps extends Omit<DateRangePickerProps, 'views'>{}
 
 export interface DateTimePickerProps extends DatePickerProps {
   ampm?: boolean;
