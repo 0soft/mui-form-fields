@@ -79,6 +79,7 @@ const FormDateTimeField: React.SFC<FormDateTimeFieldProps> = ({
             <DateTimePicker
               nobox
               fullWidth
+              autoOk
               ampm={ampm}
               {...input}
               onInit={input.onChange}

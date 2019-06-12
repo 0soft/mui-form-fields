@@ -38,8 +38,6 @@ const FormDateRangeField: React.SFC<FormDateRangeFieldProps> = ({
     <FormField
       icon={icon}
       name={name}
-      format="date"
-      parse="date"
       hasIcon={hasIcon}
       validate={validate}
       render={({
@@ -76,6 +74,7 @@ const FormDateRangeField: React.SFC<FormDateRangeFieldProps> = ({
             <DateRangePicker
               nobox
               fullWidth
+              autoOk
               {...input}
               error={Boolean(meta.touched && meta.error)}
               helperText={meta.touched ? meta.error : ''}

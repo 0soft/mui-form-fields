@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Divider, Button } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 import { Form } from 'react-final-form';
 import { FormDateRangeField } from '../src';
 
@@ -22,10 +22,7 @@ const FormTest = ({
     render={({ handleSubmit, invalid, submitting, ...props }) => {
       return (
         <form onSubmit={handleSubmit}>
-          <div>{render({ ...props, invalid })}</div>
-          <Button variant="contained" type="submit">
-            Submit
-          </Button>
+          <div>{render({ ...props, invalid })}</div>          
         </form>
       );
     }}
@@ -45,19 +42,18 @@ storiesOf('FormDateRangeField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            {/* <FormDateRangeField
+            <FormDateRangeField
               icon="calendar_today"
               name="daterange"
               label="Daterange"
-            /> */}
+            />
             <Divider variant="inset" />
             <FormDateRangeField
               icon="today"
               name="date_initial"
               label="Initial Date"
-              // value={values.date_initial}
             />
-            {/* <Divider variant="inset" />
+            <Divider variant="inset" />
             <FormDateRangeField
               icon="today"
               name="clearable"
@@ -70,7 +66,7 @@ storiesOf('FormDateRangeField', module).add('default', () => {
               name="disabled"
               label="Disabled"
               disabled
-            /> */}
+            />            
           </React.Fragment>
         );
       }}

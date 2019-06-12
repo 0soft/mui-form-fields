@@ -41,8 +41,6 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
     <FormField
       icon={icon}
       name={name}
-      format="date"
-      parse="date"
       hasIcon={hasIcon}
       validate={validate}
       render={({
@@ -78,6 +76,7 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
             </span>
             <DatePicker
               nobox
+              autoOk
               fullWidth
               views={views}
               {...input}
