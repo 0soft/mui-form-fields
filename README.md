@@ -1,47 +1,23 @@
-# Library Boilerplate
+#  MUI Form Fields
 
-Boilerplate for library projects using `Typescript + React + Jest + Storybook`
+Material UI + FinalForm Fields, packaged and ready to go! :package:
 
-## Run
-
-To start a storybook local development server at `localhost:6006` use:
+## Installation
 
 ```bash
-npm run storybook
+$ npm i --save mui-form-fields
 ```
 
-To build component to production:
+## Examples
 
-```bash
-npm run build
-```
+TBD
 
-To run tests use (defaults to watch and coverage on):
+## Usage
 
-```bash
-npm run test
-```
+We currently have the following FormFields available:
 
-To find all translation texts use (defaults to pt-BR):
+Click on each of them to get more details about the usage of each of them.
 
-```bash
-npm run gettext
-```
+## License
 
-To build your storybook use:
-
-```bash
-npm run build-storybook
-```
-
-To run a code prettifier:
-
-```bash
-npm run prettier
-```
-
-## Testing
-
-Tests should be written following the `src` directory structure inside the `tests` directory
-
-For a simple cheatsheet check out this repository [Jest Cheatsheet](https://github.com/sapegin/jest-cheat-sheet).
+TBD

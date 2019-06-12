@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { InputAdornment, TextField, Icon } from '@material-ui/core';
+import { Icon, InputAdornment, TextField } from "@material-ui/core";
+import * as React from "react";
+import { FieldInputProps, FieldMetaState } from "react-final-form";
 import {
-  FieldValidator,
-  FieldParser,
   FieldFormatter,
-  setFocus,
+  FieldParser,
+  FieldValidator,
   FormatterOptions,
   ParserOptions,
-} from '../utils';
-import FormField from './FormField';
-import { FieldInputProps, FieldMetaState } from 'react-final-form';
+  setFocus,
+} from "../utils";
+import FormField from "./FormField";
 
 interface FormTextFieldProps {
   icon?: string | React.ReactElement;
@@ -24,7 +24,7 @@ interface FormTextFieldProps {
   disabled?: boolean;
   multiline?: boolean;
   rows?: string | number;
-  margin?: 'dense' | 'none' | 'normal';
+  margin?: "dense" | "none" | "normal";
   InputProps?: Object;
 }
 
@@ -45,7 +45,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
   validate,
 }) => {
   const lowerlabel =
-    typeof label === 'string' ? label.toLowerCase() : 'information';
+    typeof label === "string" ? label.toLowerCase() : "information";
   placeholder = placeholder || `Please insert the ${lowerlabel} here...`;
   return (
     <FormField
@@ -62,7 +62,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
         input: FieldInputProps<HTMLElement>;
         meta: FieldMetaState;
       }) => {
-        value = value || input.value;
+        const setValue = value || input.value;
         return (
           <TextField
             className="form-field-input"
@@ -74,21 +74,21 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
             rows={rows}
             margin={margin}
             {...input}
-            value={value}
+            value={setValue}
             disabled={disabled}
             error={Boolean(meta.touched && meta.error)}
-            helperText={meta.touched ? meta.error : ''}
+            helperText={meta.touched ? meta.error : ""}
             InputProps={{
               endAdornment: (
                 <InputAdornment
                   position="end"
                   onClick={setFocus}
                   style={{
-                    alignSelf: 'start',
-                    cursor: disabled ? 'default' : 'pointer',
+                    alignSelf: "start",
+                    cursor: disabled ? "default" : "pointer",
                   }}
                 >
-                  <Icon fontSize="small" style={{ color: '#757575' }}>
+                  <Icon fontSize="small" style={{ color: "#757575" }}>
                     create
                   </Icon>
                 </InputAdornment>

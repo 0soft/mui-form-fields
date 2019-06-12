@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { FormControlLabel, Switch } from '@material-ui/core';
-import { omit } from '../utils';
-import FormField from './FormField';
-import { FieldInputProps } from 'react-final-form';
+import { FormControlLabel, Switch } from "@material-ui/core";
+import * as React from "react";
+import { FieldInputProps } from "react-final-form";
+import { omit } from "../utils";
+import FormField from "./FormField";
 
 interface FormSwitchFieldProps {
   icon?: string | React.ReactElement;
@@ -10,7 +10,7 @@ interface FormSwitchFieldProps {
   label: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler;
-  placement?: 'start' | 'end' | 'top' | 'bottom';
+  placement?: "start" | "end" | "top" | "bottom";
   className?: string;
 }
 
@@ -33,9 +33,10 @@ const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
         return (
           <FormControlLabel
             style={{
-              display: 'flex',
-              width: '100%',
-              justifyContent: 'space-between',
+              display: "flex",
+              width: "100%",
+              justifyContent: "space-between",
+              marginLeft: "2px",
             }}
             disabled={disabled}
             label={label}
@@ -44,7 +45,7 @@ const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
               <Switch
                 color="primary"
                 onClick={onClick}
-                {...omit(input, ['type'])}
+                {...omit(input, ["type"])}
               />
             }
           />
@@ -56,7 +57,7 @@ const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
 
 FormSwitchField.defaultProps = {
   disabled: false,
-  placement: 'start',
+  placement: "start",
 };
 
 export default FormSwitchField;

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import FormTextField from './FormTextField';
-import { FieldValidator } from '../utils';
-import { PhoneMask } from '../helpers';
+import * as React from "react";
+import { PhoneMask } from "../helpers";
+import { FieldValidator } from "../utils";
+import FormTextField from "./FormTextField";
 
 interface FormPhoneFieldProps {
   icon?: string | React.ReactElement;
@@ -34,6 +34,7 @@ const FormPhoneField: React.SFC<FormPhoneFieldProps> = ({
 };
 
 FormPhoneField.defaultProps = {
+  icon: "phone",
   disabled: false,
 };
 

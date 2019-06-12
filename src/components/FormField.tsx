@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { Icon, ListItem, ListItemIcon } from '@material-ui/core';
-import { Field } from 'react-final-form';
+import { Icon, ListItem, ListItemIcon } from "@material-ui/core";
+import * as React from "react";
+import { Field } from "react-final-form";
 import {
+  FieldFormatter,
+  FieldParser,
+  FieldValidator,
+  FormatterOptions,
   handleFormatter,
   handleParser,
   handleValidator,
-  FieldValidator,
-  FieldFormatter,
-  FieldParser,
   ParserOptions,
-  FormatterOptions,
-} from '../utils';
+} from "../utils";
 
 interface FormFieldProps {
   icon?: string | React.ReactElement;
@@ -23,6 +23,7 @@ interface FormFieldProps {
   parse?: FieldParser | ParserOptions;
   validate?: FieldValidator | string;
   className?: string | undefined;
+  alignItems?: "center" | "start" | "end";
 }
 
 const FormField: React.SFC<FormFieldProps> = ({
@@ -36,16 +37,17 @@ const FormField: React.SFC<FormFieldProps> = ({
   type,
   validate,
   className,
+  alignItems,
 }) => {
   return (
     <ListItem
       className={className}
-      style={{ alignItems: 'start', paddingRight: '24px' }}
+      style={{ alignItems, paddingRight: "24px" }}
     >
       {hasIcon && (
         <ListItemIcon style={{ paddingTop: iconPadding }}>
           {icon !== undefined ? (
-            typeof icon === 'string' ? (
+            typeof icon === "string" ? (
               <Icon>{icon}</Icon>
             ) : (
               icon
@@ -57,10 +59,10 @@ const FormField: React.SFC<FormFieldProps> = ({
       )}
       <Field
         name={name}
-        format={typeof format === 'string' ? handleFormatter(format) : format}
-        parse={typeof parse === 'string' ? handleParser(parse) : parse}
+        format={typeof format === "string" ? handleFormatter(format) : format}
+        parse={typeof parse === "string" ? handleParser(parse) : parse}
         validate={
-          typeof validate === 'string' ? handleValidator(validate) : validate
+          typeof validate === "string" ? handleValidator(validate) : validate
         }
         type={type}
         render={({ input, meta }) => {
@@ -72,8 +74,9 @@ const FormField: React.SFC<FormFieldProps> = ({
 };
 
 FormField.defaultProps = {
-  type: 'text',
-  iconPadding: '16px',
+  type: "text",
+  iconPadding: "0",
+  alignItems: "center",
   hasIcon: true,
 };
 
