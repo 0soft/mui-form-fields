@@ -10,6 +10,10 @@ import FormSwitchField from './components/FormSwitchField';
 import FormButtonField from './components/FormButtonField';
 import FormChipField from './components/FormChipField';
 import FormFileUploadField from './components/FormFileUploadField';
+import FormDateField from './components/FormDateField';
+import FormDateTimeField from './components/FormDateTimeField';
+import FormDateRangeField from './components/FormDateRangeField';
+import FormWeekField from './components/FormWeekField';
 
 export {
   FormIntegerField,
@@ -24,4 +28,8 @@ export {
   FormShowField,
   FormChipField,
   FormFileUploadField,
+  FormDateField,
+  FormDateTimeField,
+  FormDateRangeField,
+  FormWeekField,
 };

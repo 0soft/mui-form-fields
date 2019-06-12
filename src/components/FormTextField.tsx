@@ -5,6 +5,8 @@ import {
   FieldParser,
   FieldFormatter,
   setFocus,
+  FormatterOptions,
+  ParserOptions,
 } from '../utils';
 import FormField from './FormField';
 import { FieldInputProps, FieldMetaState } from 'react-final-form';
@@ -13,8 +15,8 @@ interface FormTextFieldProps {
   icon?: string | React.ReactElement;
   hasIcon?: boolean;
   name: string;
-  format?: FieldFormatter | string;
-  parse?: FieldParser | string;
+  format?: FieldFormatter | FormatterOptions;
+  parse?: FieldParser | ParserOptions;
   validate?: FieldValidator | string;
   label: string;
   placeholder?: string;

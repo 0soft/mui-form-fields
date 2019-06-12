@@ -19,7 +19,7 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
-    "moduleResolution": "node"
+    "esModuleInterop": true
   },
   "exclude": ["./node_modules", "build", "config", "tests"],
   "types": ["typePatches"]

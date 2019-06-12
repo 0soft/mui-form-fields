@@ -2,12 +2,19 @@ import { getFnc } from './index';
 import moment from 'moment';
 
 export type FieldFormatter = (value: any) => any | undefined;
+export type FormatterOptions =
+  | 'percentage'
+  | 'money'
+  | 'date'
+  | 'dateTime'
+  | undefined;
 
 interface Formatters {
   percentage: FieldFormatter;
   money: FieldFormatter;
   string: FieldFormatter;
   date: FieldFormatter;
+  dateTime: FieldFormatter;
 }
 
 const number = (
@@ -71,21 +78,20 @@ const formatters: Formatters = {
     }
     return moment(value).format('YYYY-MM-DD');
   },
+  dateTime: (value: any) => {
+    if (!value) {
+      return value;
+    }
+    return moment(value).format();
+  },
 };
 
-export const handleFormatter = (formatter: string) => {
-  switch (formatter) {
-    case 'money':
-      return getFnc(formatters, 'money');
-    case 'percentage':
-      return getFnc(formatters, 'percentage');
-    case 'string':
-      return getFnc(formatters, 'string');
-    case 'date':
-      return getFnc(formatters, 'date');
-    default:
-      return undefined;
+export const handleFormatter = (formatter: FormatterOptions) => {
+  if (formatter === undefined) {
+    return undefined;
   }
+
+  return getFnc(formatters, formatter);
 };
 
 export default handleFormatter;

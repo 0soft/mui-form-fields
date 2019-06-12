@@ -8,6 +8,8 @@ import {
   FieldValidator,
   FieldFormatter,
   FieldParser,
+  ParserOptions,
+  FormatterOptions,
 } from '../utils';
 
 interface FormFieldProps {
@@ -17,8 +19,8 @@ interface FormFieldProps {
   render: Function;
   type?: string;
   iconPadding?: string;
-  format?: FieldFormatter | string;
-  parse?: FieldParser | string;
+  format?: FieldFormatter | FormatterOptions;
+  parse?: FieldParser | ParserOptions;
   validate?: FieldValidator | string;
   className?: string | undefined;
 }

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { FieldFormatter } from '../utils';
+import { FieldFormatter, FormatterOptions } from '../utils';
 import FormTextField from './FormTextField';
 
 interface FormShowFieldProps {
   icon?: string | React.ReactElement;
   hasIcon?: boolean;
   name: string;
-  format?: FieldFormatter | string;
+  format?: FieldFormatter | FormatterOptions;
   label: string;
   value?: Array<string | number | boolean> | string | number | boolean;
   multiline?: boolean;
