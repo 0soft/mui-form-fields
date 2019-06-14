@@ -37,10 +37,7 @@ export interface DatePickerProps {
 }
 
 export interface DateRangePickerProps
-  extends Omit<
-    DatePickerProps,
-    'labelFunc' | 'value' | 'onInit' | 'onChange'
-  > {
+  extends Omit<DatePickerProps, 'labelFunc' | 'value' | 'onInit' | 'onChange'> {
   value?: RangePicker | undefined;
   labelFunc?: ((date: RangePicker, invalidLabel: string) => string) | undefined;
   onChange?: ((date: RangePicker) => void) | undefined;
@@ -55,7 +52,7 @@ export interface DateRangePickerProps
   };
 }
 
-export interface WeekPickerProps extends Omit<DateRangePickerProps, 'views'>{}
+export interface WeekPickerProps extends Omit<DateRangePickerProps, 'views'> {}
 
 export interface DateTimePickerProps extends DatePickerProps {
   ampm?: boolean;

@@ -1,15 +1,15 @@
-import * as React from 'react';
 import { Icon, ListItem, ListItemIcon } from '@material-ui/core';
+import * as React from 'react';
 import { Field } from 'react-final-form';
 import {
+  FieldFormatter,
+  FieldParser,
+  FieldValidator,
+  FormatterOptions,
   handleFormatter,
   handleParser,
   handleValidator,
-  FieldValidator,
-  FieldFormatter,
-  FieldParser,
   ParserOptions,
-  FormatterOptions,
 } from '../utils';
 
 interface FormFieldProps {
@@ -23,6 +23,7 @@ interface FormFieldProps {
   parse?: FieldParser | ParserOptions;
   validate?: FieldValidator | string;
   className?: string | undefined;
+  alignItems?: 'center' | 'start' | 'end';
 }
 
 const FormField: React.SFC<FormFieldProps> = ({
@@ -36,11 +37,12 @@ const FormField: React.SFC<FormFieldProps> = ({
   type,
   validate,
   className,
+  alignItems,
 }) => {
   return (
     <ListItem
       className={className}
-      style={{ alignItems: 'start', paddingRight: '24px' }}
+      style={{ alignItems, paddingRight: '24px' }}
     >
       {hasIcon && (
         <ListItemIcon style={{ paddingTop: iconPadding }}>
@@ -73,7 +75,8 @@ const FormField: React.SFC<FormFieldProps> = ({
 
 FormField.defaultProps = {
   type: 'text',
-  iconPadding: '16px',
+  iconPadding: '0',
+  alignItems: 'center',
   hasIcon: true,
 };
 

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { FormControlLabel, Switch } from '@material-ui/core';
+import * as React from 'react';
+import { FieldInputProps } from 'react-final-form';
 import { omit } from '../utils';
 import FormField from './FormField';
-import { FieldInputProps } from 'react-final-form';
 
 interface FormSwitchFieldProps {
   icon?: string | React.ReactElement;
@@ -36,6 +36,7 @@ const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
               display: 'flex',
               width: '100%',
               justifyContent: 'space-between',
+              marginLeft: '2px',
             }}
             disabled={disabled}
             label={label}
