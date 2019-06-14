@@ -1,8 +1,8 @@
 {
   "name": "mui-form-fields",
-  "version": "1.0.0",
-  "description": "Mui form fields is open library of material-ui and react-final-form.",
-  "main": "dist/index.js",
+  "version": "0.0.0",
+  "description": "Material UI + FinalForm Fields, packaged and ready to go!",
+  "main": "dist/mui-form-fields.js",
   "files": [
     "dist"
   ],
@@ -23,7 +23,7 @@
     "url": "git+https://github.com/0soft/mui-form-fields.git"
   },
   "author": "0soft",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/0soft/mui-form-fields/issues"
   },
