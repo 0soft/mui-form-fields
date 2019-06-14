@@ -1,6 +1,6 @@
-import { Icon, InputAdornment, TextField } from "@material-ui/core";
-import * as React from "react";
-import { FieldInputProps, FieldMetaState } from "react-final-form";
+import { Icon, InputAdornment, TextField } from '@material-ui/core';
+import * as React from 'react';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
 import {
   FieldFormatter,
   FieldParser,
@@ -8,8 +8,8 @@ import {
   FormatterOptions,
   ParserOptions,
   setFocus,
-} from "../utils";
-import FormField from "./FormField";
+} from '../utils';
+import FormField from './FormField';
 
 interface FormTextFieldProps {
   icon?: string | React.ReactElement;
@@ -24,7 +24,7 @@ interface FormTextFieldProps {
   disabled?: boolean;
   multiline?: boolean;
   rows?: string | number;
-  margin?: "dense" | "none" | "normal";
+  margin?: 'dense' | 'none' | 'normal';
   InputProps?: Object;
 }
 
@@ -45,7 +45,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
   validate,
 }) => {
   const lowerlabel =
-    typeof label === "string" ? label.toLowerCase() : "information";
+    typeof label === 'string' ? label.toLowerCase() : 'information';
   placeholder = placeholder || `Please insert the ${lowerlabel} here...`;
   return (
     <FormField
@@ -77,18 +77,21 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
             value={setValue}
             disabled={disabled}
             error={Boolean(meta.touched && meta.error)}
-            helperText={meta.touched ? meta.error : ""}
+            helperText={meta.touched ? meta.error : ''}
             InputProps={{
               endAdornment: (
                 <InputAdornment
                   position="end"
                   onClick={setFocus}
                   style={{
-                    alignSelf: "start",
-                    cursor: disabled ? "default" : "pointer",
+                    alignSelf: 'center',
+                    cursor: disabled ? 'default' : 'pointer',
                   }}
                 >
-                  <Icon fontSize="small" style={{ color: "#757575" }}>
+                  <Icon
+                    fontSize="small"
+                    style={{ color: '#757575', alignSelf: 'center' }}
+                  >
                     create
                   </Icon>
                 </InputAdornment>

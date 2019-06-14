@@ -45,7 +45,7 @@ const WeekPicker: React.SFC<WeekPickerProps> = ({
     begin: null,
     end: null,
   });
-  
+
   const onChangeInternal = (date: MaterialUiPickersDate) => {
     if (!date) {
       setSelected({ begin: null, end: null });
@@ -96,9 +96,9 @@ const WeekPicker: React.SFC<WeekPickerProps> = ({
             selectedDate = {
               begin: moment(day).startOf('week'),
               end: moment(day).endOf('week'),
-            }
+            };
           }
-         
+
           if (!autoOk) {
             e.stopPropagation();
           }
@@ -160,7 +160,7 @@ const WeekPicker: React.SFC<WeekPickerProps> = ({
     }
 
     if (beginValue && !beginValue.isValid()) {
-      beginValue = moment().startOf('week');     
+      beginValue = moment().startOf('week');
     }
 
     if (beginValue) {
@@ -174,7 +174,7 @@ const WeekPicker: React.SFC<WeekPickerProps> = ({
 
   React.useEffect(() => {
     const { begin, end } = selected;
-    
+
     setRange({ begin, end });
 
     if ((!begin && !end) || (begin && end)) {

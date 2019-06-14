@@ -22,7 +22,7 @@ const FormTest = ({
     render={({ handleSubmit, invalid, submitting, ...props }) => {
       return (
         <form onSubmit={handleSubmit}>
-          <div>{render({ ...props, invalid })}</div>          
+          <div>{render({ ...props, invalid })}</div>
         </form>
       );
     }}
@@ -66,7 +66,7 @@ storiesOf('FormWeekField', module).add('default', () => {
               name="disabled"
               label="Disabled"
               disabled
-            />            
+            />
           </React.Fragment>
         );
       }}

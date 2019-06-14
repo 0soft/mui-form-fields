@@ -1,10 +1,10 @@
-import { Button, Chip } from "@material-ui/core";
-import AttachmentIcon from "@material-ui/icons/Attachment";
-import * as React from "react";
-import { useDropzone } from "react-dropzone";
-import { FieldInputProps, FieldMetaState } from "react-final-form";
-import { setFocus } from "../utils";
-import FormField from "./FormField";
+import { Button, Chip } from '@material-ui/core';
+import AttachmentIcon from '@material-ui/icons/Attachment';
+import * as React from 'react';
+import { useDropzone } from 'react-dropzone';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
+import { setFocus } from '../utils';
+import FormField from './FormField';
 
 interface FormFileUploadFieldProps {
   icon?: string | React.ReactElement;
@@ -50,7 +50,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
       icon={icon}
       name={name}
       hasIcon={hasIcon}
-      validate={required ? "required" : undefined}
+      validate={required ? 'required' : undefined}
       className={className}
       alignItems="start"
       iconPadding="16px"
@@ -63,27 +63,27 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
       }) => {
         React.useEffect(() => {
           const files = acceptedFiles.filter(
-            (it) =>
+            it =>
               !multiple ||
               !Boolean(
                 input.value &&
-                  input.value.filter((i: File) => i.name === it.name).length,
-              ),
+                  input.value.filter((i: File) => i.name === it.name).length
+              )
           );
 
           input.onChange(
-            multiple && input.value ? input.value.concat(files) : files,
+            multiple && input.value ? input.value.concat(files) : files
           );
         }, [acceptedFiles]);
 
         return (
-          <div style={{ width: "100%" }}>
+          <div style={{ width: '100%' }}>
             {label && (
               <span
                 style={{
-                  marginBottom: "0.3125rem",
-                  fontSize: "0.75rem",
-                  color: "rgba(0, 0, 0, 0.54)",
+                  marginBottom: '0.3125rem',
+                  fontSize: '0.75rem',
+                  color: 'rgba(0, 0, 0, 0.54)',
                 }}
                 onClick={setFocus}
               >
@@ -91,20 +91,20 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
               </span>
             )}
             <div
-              {...getRootProps({ className: "dropzone" })}
+              {...getRootProps({ className: 'dropzone' })}
               style={{
-                display: "flex",
-                color: "gray",
-                fontSize: "0.90rem",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "column",
+                display: 'flex',
+                color: 'gray',
+                fontSize: '0.90rem',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
                 border: `dashed 2px ${
-                  meta.touched && meta.error ? "#F44336" : "#bdbdbd"
+                  meta.touched && meta.error ? '#F44336' : '#bdbdbd'
                 }`,
-                width: "100%",
+                width: '100%',
                 height,
-                position: "relative",
+                position: 'relative',
                 opacity: disabled ? 0.2 : 1,
               }}
             >
@@ -115,9 +115,9 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                 <>
                   <i
                     style={{
-                      color: "gray",
-                      marginTop: "20px",
-                      fontSize: "40px",
+                      color: 'gray',
+                      marginTop: '20px',
+                      fontSize: '40px',
                     }}
                     className="fa fa-file"
                   />
@@ -134,23 +134,23 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
             </div>
             <span
               style={{
-                color: "#F44336",
-                marginBottom: "5px",
-                marginTop: "5px",
-                fontSize: "0.75rem",
+                color: '#F44336',
+                marginBottom: '5px',
+                marginTop: '5px',
+                fontSize: '0.75rem',
               }}
             >
-              {meta.touched ? meta.error : ""}
+              {meta.touched ? meta.error : ''}
             </span>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
               {input.value &&
                 input.value.map((file: File, idx: number) => {
                   return (
                     <div
                       style={{
-                        marginRight: "5px",
-                        marginTop: "10px",
-                        marginBottom: "10px",
+                        marginRight: '5px',
+                        marginTop: '10px',
+                        marginBottom: '10px',
                       }}
                       key={idx}
                     >
@@ -159,7 +159,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                         label={file.name}
                         onDelete={() => {
                           const files = input.value.filter(
-                            (it: File) => it.name !== file.name,
+                            (it: File) => it.name !== file.name
                           );
                           input.onChange(files);
                         }}
@@ -179,7 +179,7 @@ FormFileUploadField.defaultProps = {
   disabled: false,
   required: false,
   multiple: false,
-  height: "200px",
+  height: '200px',
 };
 
 export default FormFileUploadField;
