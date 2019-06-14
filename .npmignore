@@ -1,0 +1,21 @@
+.vscode
+# dependencies
+node_modules
+
+# production bundle
+dist
+
+# misc
+.DS_Store
+npm-debug.log*
+
+#tests
+__coverage__
+__snapshots__
+
+*.d.ts
+
+# Dev Tools and Documentation
+assets/
+bin/
+devtools/
