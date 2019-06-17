@@ -110,5 +110,17 @@
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Francisross Soares de Oliveira",
+      "email": "franciscpd@gmail.com",
+      "url": "https://github.com/franciscpd"
+    },
+    {
+      "name": "Nihey Takizawa",
+      "email": "nihey.takizawa@gmail.com",
+      "url": "https://github.com/nihey"
+    }
+  ]
 }
