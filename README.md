@@ -1,7 +1,7 @@
 #  MUI Form Fields
 
 [![NPM Downloads](https://img.shields.io/npm/dt/mui-form-fields.svg?style=flat)](https://npmcharts.com/compare/mui-form-fields?minimal=true)
-[![dependencies Status](https://david-dm.org/0soft/mui-form-fields/status.svg)](https://david-dm.org/0soft/mui-form-fields)
+[![peerDependencies Status](https://david-dm.org/0soft/mui-form-fields/peer-status.svg)](https://david-dm.org/0soft/mui-form-fields?type=peer)
 [![npm version](https://badge.fury.io/js/mui-form-fields.svg)](https://badge.fury.io/js/mui-form-fields)
 
 **Warning: this repository is currently to be officially released**
