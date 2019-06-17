@@ -11,27 +11,29 @@ import FormNumberField from './components/FormNumberField';
 import FormPercentageField from './components/FormPercentageField';
 import FormPhoneField from './components/FormPhoneField';
 import FormReadOnlyField from './components/FormReadOnlyField';
+import FormSelectField from './components/FormSelectField';
 import FormShowField from './components/FormShowField';
 import FormSwitchField from './components/FormSwitchField';
 import FormTextField from './components/FormTextField';
 import FormWeekField from './components/FormWeekField';
 
 export {
-  FormIntegerField,
-  FormNumberField,
-  FormMoneyField,
+  FormButtonField,
+  FormChipField,
+  FormDateField,
+  FormDateRangeField,
+  FormDateTimeField,
   FormDialog,
+  FormFileUploadField,
+  FormIntegerField,
+  FormMoneyField,
+  FormNumberField,
   FormPercentageField,
   FormPhoneField,
-  FormTextField,
-  FormSwitchField,
-  FormButtonField,
   FormReadOnlyField,
+  FormSelectField,
   FormShowField,
-  FormChipField,
-  FormFileUploadField,
-  FormDateField,
-  FormDateTimeField,
-  FormDateRangeField,
+  FormSwitchField,
+  FormTextField,
   FormWeekField,
 };
