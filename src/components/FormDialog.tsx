@@ -50,6 +50,7 @@ interface FormDialogProps extends WithStyles<typeof styles> {
   onClose: () => any;
   size: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   children: any;
+  dividers: boolean;
   initial?: object;
   closeLabel?: any;
   submitLabel?: any;
@@ -63,11 +64,13 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   size,
   children,
   classes,
+  dividers = false,
   initial = {},
   closeLabel = 'Close',
   submitLabel = 'Save',
   onSubmit,
 }) => {
+  const childrenCount = React.Children.count(children);
   return (
     <Form
       onSubmit={onSubmit}
@@ -90,7 +93,14 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
                 ) : null}
               </DialogTitle>
               <Divider />
-              {children}
+              {React.Children.map(children, (c: any, index: number): any => {
+                return (
+                  <>
+                    {c}
+                    {dividers && index !== childrenCount - 1 && <Divider />}
+                  </>
+                );
+              })}
               <Divider />
               <DialogActions className={classes.action}>
                 <Button className={classes.actionButton}>{closeLabel}</Button>
