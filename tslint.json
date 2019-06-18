@@ -8,7 +8,8 @@
     "max-line-length": { "options": 100 },
     "interface-name": false,
     "no-var-requires": false,
-    "prettier": [true, ".prettierrc"]
+    "prettier": [true, ".prettierrc"],
+    "object-literal-sort-keys": false
   },
   "jsRules": {
     "max-line-length": { "options": [100] }

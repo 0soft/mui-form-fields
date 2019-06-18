@@ -10,6 +10,7 @@ import FormMoneyField from './components/FormMoneyField';
 import FormNumberField from './components/FormNumberField';
 import FormPercentageField from './components/FormPercentageField';
 import FormPhoneField from './components/FormPhoneField';
+import FormReactSelectField from './components/FormReactSelectField';
 import FormReadOnlyField from './components/FormReadOnlyField';
 import FormSelectField from './components/FormSelectField';
 import FormShowField from './components/FormShowField';
@@ -32,6 +33,7 @@ export {
   FormPhoneField,
   FormReadOnlyField,
   FormSelectField,
+  FormReactSelectField,
   FormShowField,
   FormSwitchField,
   FormTextField,
