@@ -323,6 +323,7 @@ const FormReactSelectField: React.FunctionComponent<
                 },
                 label,
                 placeholder,
+                helperText: meta.touched ? meta.error : '',
               }}
               value={input.value}
               onChange={input.onChange}
