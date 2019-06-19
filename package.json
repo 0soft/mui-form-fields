@@ -1,6 +1,6 @@
 {
   "name": "mui-form-fields",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Material UI + FinalForm Fields, packaged and ready to go!",
   "main": "dist/mui-form-fields.js",
   "types": "dist/types/index.d.ts",
