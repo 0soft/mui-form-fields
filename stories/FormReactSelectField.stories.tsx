@@ -34,6 +34,18 @@ storiesOf('FormReactSelectField', module).add('default', () => {
                 { label: 'Stakeholder', value: 'stakeholder' },
               ]}
             />
+            <FormReactSelectField
+              icon="extension"
+              name="plugins"
+              label="Plugins"
+              multi
+              options={[
+                { label: 'WIP', value: 'wip' },
+                { label: 'Mirrors', value: 'mirrors' },
+                { label: 'Matches', value: 'matches' },
+                { label: 'Expedite', value: 'expedite' },
+              ]}
+            />
           </React.Fragment>
         );
       }}

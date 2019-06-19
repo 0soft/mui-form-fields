@@ -20,11 +20,11 @@ interface FormSelectFieldProps {
   hasIcon?: boolean;
   name: string;
   label: string;
-  placeholder?: string;
   disabled?: boolean;
   options: Options[];
   validate?: FieldValidator | string;
   defaultValue?: string;
+  multi?: boolean;
 }
 
 const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
@@ -32,11 +32,11 @@ const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
   hasIcon = true,
   name,
   label,
-  placeholder,
   disabled = false,
   options,
   validate,
   defaultValue,
+  multi = false,
 }) => {
   return (
     <FormField
@@ -55,9 +55,10 @@ const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
           <FormControl style={{ width: '100%' }}>
             <InputLabel shrink>{label}</InputLabel>
             <Select
-              value={input.value || defaultValue}
+              value={input.value || defaultValue || (multi ? [] : '')}
               onChange={input.onChange}
               input={<Input name={name} />}
+              multiple={multi}
             >
               {options.map((o: Options) => {
                 return (
