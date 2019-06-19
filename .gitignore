@@ -2,6 +2,9 @@
 # dependencies
 node_modules
 
+# Documentation
+.docz/
+
 # misc
 .DS_Store
 npm-debug.log*
