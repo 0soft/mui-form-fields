@@ -265,6 +265,7 @@ interface FormReactSelectFieldProps {
   options: Options[];
   validate?: FieldValidator | string;
   defaultValue?: string;
+  multi?: boolean;
 }
 
 const FormReactSelectField: React.FunctionComponent<
@@ -279,6 +280,7 @@ const FormReactSelectField: React.FunctionComponent<
   validate,
   defaultValue,
   placeholder,
+  multi,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -314,12 +316,14 @@ const FormReactSelectField: React.FunctionComponent<
               // @ts-ignore
               components={components}
               styles={selectStyles}
+              isMulti={multi}
               TextFieldProps={{
                 InputLabelProps: {
                   shrink: true,
                 },
                 label,
                 placeholder,
+                helperText: meta.touched ? meta.error : '',
               }}
               value={input.value}
               onChange={input.onChange}
