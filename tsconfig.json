@@ -19,8 +19,10 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "outDir": "dist/types"
   },
+  "include": ["src/**/*"],
   "exclude": ["./node_modules", "build", "config", "tests"],
   "types": ["typePatches"]
 }
