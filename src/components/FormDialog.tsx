@@ -74,6 +74,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   return (
     <Form
       onSubmit={onSubmit}
+      initialValues={initial}
       render={({ handleSubmit }) => {
         return (
           <Dialog
