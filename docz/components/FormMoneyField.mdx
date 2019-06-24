@@ -1,0 +1,31 @@
+---
+name: FormMoneyField
+menu: Components
+route: /components/FormMoneyField
+---
+
+import Form from "../FormTest";
+import { FormMoneyField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormMoneyField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormMoneyField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormMoneyField}/>

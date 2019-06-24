@@ -1,0 +1,31 @@
+---
+name: FormSelectField
+menu: Components
+route: /components/FormSelectField
+---
+
+import Form from "../FormTest";
+import { FormSelectField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormSelectField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormSelectField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"options={[{"label":"Owner","value":"owner"},{"label":"Admin","value":"admin"},{"label":"Manager","value":"manager"},{"label":"Stakeholder","value":"stakeholder"}]}
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormSelectField}/>

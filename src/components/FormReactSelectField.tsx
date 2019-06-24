@@ -317,6 +317,7 @@ const FormReactSelectField: React.FunctionComponent<
               components={components}
               styles={selectStyles}
               isMulti={multi}
+              menuPortalTarget={document.body}
               TextFieldProps={{
                 InputLabelProps: {
                   shrink: true,

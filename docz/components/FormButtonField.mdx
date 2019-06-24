@@ -1,0 +1,31 @@
+---
+name: FormButtonField
+menu: Components
+route: /components/FormButtonField
+---
+
+import Form from "../FormTest";
+import { FormButtonField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormButtonField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormButtonField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"text="Click me!!!"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormButtonField}/>

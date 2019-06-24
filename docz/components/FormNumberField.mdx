@@ -1,0 +1,31 @@
+---
+name: FormNumberField
+menu: Components
+route: /components/FormNumberField
+---
+
+import Form from "../FormTest";
+import { FormNumberField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormNumberField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormNumberField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormNumberField}/>

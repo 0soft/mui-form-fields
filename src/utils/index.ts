@@ -1,11 +1,8 @@
 import isPlainObject from 'is-plain-object';
-import handleParser, { FieldParser, ParserOptions } from './parsers';
-import handleValidator, { FieldValidator } from './validators';
-import handleFormatter, {
-  FieldFormatter,
-  FormatterOptions,
-} from './formatters';
 import { createNumberMask as _createNumberMask } from 'text-mask-addons';
+import handleFormatter from './formatters';
+import handleParser from './parsers';
+import handleValidator from './validators';
 
 interface Key {
   [key: string]: any;
@@ -44,7 +41,9 @@ export const omit = (
   props: string | string[],
   fn?: (value: any, key: string, object: any) => boolean
 ) => {
-  if (!isExtendable(obj)) return {};
+  if (!isExtendable(obj)) {
+    return {};
+  }
 
   if (typeof props === 'function') {
     fn = props;
@@ -57,9 +56,9 @@ export const omit = (
 
   const isFunction = typeof fn === 'function';
   const keys = Object.keys(obj);
-  let res: Key = {};
+  const res: Key = {};
 
-  for (var i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const val = obj[key];
 
@@ -73,13 +72,4 @@ export const omit = (
   return res;
 };
 
-export {
-  handleFormatter,
-  handleParser,
-  handleValidator,
-  FieldValidator,
-  FieldFormatter,
-  FieldParser,
-  ParserOptions,
-  FormatterOptions,
-};
+export { handleFormatter, handleParser, handleValidator };

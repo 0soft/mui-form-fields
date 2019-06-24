@@ -36,7 +36,7 @@ const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
   options,
   validate,
   defaultValue,
-  multi = false,
+  multi,
 }) => {
   return (
     <FormField
@@ -74,6 +74,11 @@ const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
       }}
     />
   );
+};
+
+FormSelectField.defaultProps = {
+  multi: false,
+  options: [],
 };
 
 export default FormSelectField;

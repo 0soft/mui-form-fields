@@ -1,0 +1,31 @@
+---
+name: FormFileUploadField
+menu: Components
+route: /components/FormFileUploadField
+---
+
+import Form from "../FormTest";
+import { FormFileUploadField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormFileUploadField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormFileUploadField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormFileUploadField}/>
