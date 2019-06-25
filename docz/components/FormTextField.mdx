@@ -1,0 +1,31 @@
+---
+name: FormTextField
+menu: Components
+route: /components/FormTextField
+---
+
+import Form from "../FormTest";
+import { FormTextField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormTextField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormTextField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormTextField}/>

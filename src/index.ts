@@ -4,6 +4,7 @@ import FormDateField from './components/FormDateField';
 import FormDateRangeField from './components/FormDateRangeField';
 import FormDateTimeField from './components/FormDateTimeField';
 import FormDialog from './components/FormDialog';
+import FormField from './components/FormField';
 import FormFileUploadField from './components/FormFileUploadField';
 import FormIntegerField from './components/FormIntegerField';
 import FormMoneyField from './components/FormMoneyField';
@@ -25,6 +26,7 @@ export {
   FormDateRangeField,
   FormDateTimeField,
   FormDialog,
+  FormField,
   FormFileUploadField,
   FormIntegerField,
   FormMoneyField,

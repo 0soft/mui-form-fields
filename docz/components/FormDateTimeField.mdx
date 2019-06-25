@@ -1,0 +1,31 @@
+---
+name: FormDateTimeField
+menu: Components
+route: /components/FormDateTimeField
+---
+
+import Form from "../FormTest";
+import { FormDateTimeField } from "../../src";
+import { Playground, Props } from 'docz';
+
+# FormDateTimeField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormDateTimeField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormDateTimeField}/>
