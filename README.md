@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/0soft/mui-form-fields/master/assets/images/mui-formfields-logo.png" />
+</div>
+
 #  MUI Form Fields
 
 [![NPM Downloads](https://img.shields.io/npm/dt/mui-form-fields.svg?style=flat)](https://npmcharts.com/compare/mui-form-fields?minimal=true)
