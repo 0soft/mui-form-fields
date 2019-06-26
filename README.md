@@ -103,4 +103,4 @@ Click on each of them to get more details about the usage of each of them.
 
 ## License
 
-TBD
+The files included in this repository are licensed under the MIT license.
