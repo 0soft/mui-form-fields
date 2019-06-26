@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Icon from '@material-ui/core/Icon';
-import moment from 'moment';
 import MomentUtils from '@date-io/moment';
+import Icon from '@material-ui/core/Icon';
 import {
-  MuiPickersUtilsProvider,
   DatePicker as DatePickerBase,
+  MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
+import moment from 'moment';
+import * as React from 'react';
 import { DatePickerProps } from './types';
 
 const DatePicker: React.SFC<DatePickerProps> = ({
@@ -38,7 +38,6 @@ const DatePicker: React.SFC<DatePickerProps> = ({
   const [selected, setSelected] = React.useState<MaterialUiPickersDate>(null);
 
   const onChangeInternal = (d: MaterialUiPickersDate) => {
-    setSelected(d);
     onChange && onChange(d);
   };
 
@@ -86,6 +85,23 @@ const DatePicker: React.SFC<DatePickerProps> = ({
       </MuiPickersUtilsProvider>
     );
   };
+
+  React.useEffect(() => {
+    // Clearable and value is non-existing
+    if (clearable && !value) {
+      return setSelected(null);
+    }
+
+    if (!value) {
+      value = moment();
+    }
+
+    if (typeof value === 'string') {
+      value = moment(value);
+    }
+
+    setSelected(value);
+  }, [value]);
 
   React.useEffect(() => {
     let internalValue = value || (clearable ? null : moment());
