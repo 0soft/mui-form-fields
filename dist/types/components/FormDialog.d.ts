@@ -7,7 +7,7 @@ interface FormDialogProps extends WithStyles<typeof styles> {
     onClose: () => any;
     size: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
     children: any;
-    dividers: boolean;
+    dividers?: boolean;
     initial?: object;
     closeLabel?: any;
     submitLabel?: any;
