@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { Button, Divider } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-import { Divider } from '@material-ui/core';
+import * as React from 'react';
 import { Form } from 'react-final-form';
 import { FormDateField } from '../src';
 
@@ -32,6 +32,10 @@ const FormTest = ({
 storiesOf('FormDateField', module).add('default', () => {
   return (
     <FormTest
+      onSubmit={(values: any, form: any) => {
+        console.log(values, form);
+        form.reset();
+      }}
       initial={{
         date_initial: '2019-02-26',
       }}
@@ -73,10 +77,12 @@ storiesOf('FormDateField', module).add('default', () => {
               label="Year"
               views={['year']}
             />
+            <Button type="submit" variant="contained">
+              SUBMIT
+            </Button>
           </React.Fragment>
         );
       }}
-      onSubmit={(values: any) => console.log(values)}
     />
   );
 });
