@@ -1,6 +1,6 @@
+import handleFormatter, { FieldFormatter, FormatterOptions } from './formatters';
 import handleParser, { FieldParser, ParserOptions } from './parsers';
 import handleValidator, { FieldValidator } from './validators';
-import handleFormatter, { FieldFormatter, FormatterOptions } from './formatters';
 interface Key {
     [key: string]: any;
 }
