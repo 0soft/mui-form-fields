@@ -120,6 +120,12 @@
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1"
   },
+  "keywords": [
+    "material-ui",
+    "form",
+    "fields",
+    "react"
+  ],
   "contributors": [
     {
       "name": "Francisross Soares de Oliveira",
