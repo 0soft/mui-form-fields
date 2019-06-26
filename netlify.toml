@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/*"
+  from = "/components/*"
   to = "/index.html"
   status = 200
   force = true # Ensure that we always redirect
