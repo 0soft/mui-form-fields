@@ -22,3 +22,5 @@ __snapshots__
 assets/
 bin/
 devtools/
+
+src/**/*.d.ts

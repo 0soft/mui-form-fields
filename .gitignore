@@ -13,4 +13,4 @@ npm-debug.log*
 __coverage__
 __snapshots__
 
-*.d.ts
+src/**/*.d.ts

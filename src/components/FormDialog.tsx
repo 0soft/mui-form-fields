@@ -74,6 +74,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   return (
     <Form
       onSubmit={onSubmit}
+      initialValues={initial}
       render={({ handleSubmit }) => {
         return (
           <Dialog
@@ -103,7 +104,9 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
               })}
               <Divider />
               <DialogActions className={classes.action}>
-                <Button className={classes.actionButton}>{closeLabel}</Button>
+                <Button className={classes.actionButton} onClick={onClose}>
+                  {closeLabel}
+                </Button>
                 <Button
                   type="submit"
                   color="primary"
