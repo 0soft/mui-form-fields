@@ -87,8 +87,6 @@ We currently have the following FormFields available:
 - [`<FormDateField/>`](https://mui-form-fields.0soft.dev/components/FormDateField)
 - [`<FormDateRangeField/>`](https://mui-form-fields.0soft.dev/components/FormDateRangeField)
 - [`<FormDateTimeField/>`](https://mui-form-fields.0soft.dev/components/FormDateTimeField)
-- [`<FormDialog/>`](https://mui-form-fields.0soft.dev/components/FormDialog)
-- [`<FormField/>`](https://mui-form-fields.0soft.dev/components/FormField)
 - [`<FormFileUploadField/>`](https://mui-form-fields.0soft.dev/components/FormFileUploadField)
 - [`<FormIntegerField/>`](https://mui-form-fields.0soft.dev/components/FormIntegerField)
 - [`<FormMoneyField/>`](https://mui-form-fields.0soft.dev/components/FormMoneyField)
