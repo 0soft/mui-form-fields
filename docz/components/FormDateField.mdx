@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormDateField
 ---
 
-import Form from "../FormTest";
-import { FormDateField } from "../../src";
+import Form from '../FormTest';
+import FormDateField from '../../src/components/FormDateField';
 import { Playground, Props } from 'docz';
 
 # FormDateField
@@ -16,11 +16,7 @@ import { Playground, Props } from 'docz';
   <Form
     render={() => {
       return (
-        <FormDateField
-          icon="extension"
-          name="fieldName"
-          label="Field Label"
-        />
+        <FormDateField icon="extension" name="fieldName" label="Field Label" />
       );
     }}
   />
@@ -28,4 +24,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormDateField}/>
+<Props of={FormDateField} />

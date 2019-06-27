@@ -1,8 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const getComponents = require("../devtools/getComponents");
-const ignored = new Set(["FormField", "FormDialog"]);
-const components = getComponents().filter(c => !ignored.has(c));
+const fs = require('fs');
+const path = require('path');
+const getComponents = require('../devtools/getComponents');
+const components = getComponents();
 const options = [
   { label: 'Owner', value: 'owner' },
   { label: 'Admin', value: 'admin' },
@@ -11,16 +10,16 @@ const options = [
 ];
 const extraProps = {
   FormButtonField: {
-    text: "Click me!!!",
+    text: 'Click me!!!',
   },
   FormChipField: {
-    value: ["Chip A", "Chip B", "Chip C"],
+    value: ['Chip A', 'Chip B', 'Chip C'],
   },
   FormReadOnlyField: {
-    value: "This value serves only for reading purposes",
+    value: 'This value serves only for reading purposes',
   },
   FormShowField: {
-    value: "This is a permanently disabled field that only displays things",
+    value: 'This is a permanently disabled field that only displays things',
   },
   FormSelectField: {
     options,
@@ -29,22 +28,24 @@ const extraProps = {
     options,
   },
 };
-const formatProps = (props) => {
+const formatProps = props => {
   if (!props) {
-    return "";
+    return '';
   }
 
-  const text = Object.entries(props).map(([k, v]) => {
-    if (typeof v === "object") {
-      return `${k}={${JSON.stringify(v)}}`;
-    }
+  const text = Object.entries(props)
+    .map(([k, v]) => {
+      if (typeof v === 'object') {
+        return `${k}={${JSON.stringify(v)}}`;
+      }
 
-    return `${k}="${v}"`;
-  }).join("\n");
+      return `${k}="${v}"`;
+    })
+    .join('\n');
 
   return text;
-}
-const getBasicPage = (component) => {
+};
+const getBasicPage = component => {
   return `
 ---
 name: ${component}
@@ -52,11 +53,11 @@ menu: Components
 route: /components/${component}
 ---
 
-import Form from "../FormTest";
-import { ${component} } from "../../src";
+import Form from '../FormTest';
+import ${component} from '../../src/components/${component}';
 import { Playground, Props } from 'docz';
 
-# ${ component }
+# ${component}
 
 ## Example
 
@@ -67,7 +68,8 @@ import { Playground, Props } from 'docz';
         <${component}
           icon="extension"
           name="fieldName"
-          label="Field Label"${formatProps(extraProps[component])}
+          label="Field Label"
+          ${formatProps(extraProps[component])}
         />
       );
     }}
@@ -79,9 +81,9 @@ import { Playground, Props } from 'docz';
 <Props of={${component}}/>
 
   `.trim();
-}
+};
 
-const componentsDoczPath = path.resolve(__dirname, "..", "docz", "components");
+const componentsDoczPath = path.resolve(__dirname, '..', 'docz', 'components');
 components.forEach(c => {
-  fs.writeFileSync(path.join(componentsDoczPath, c + ".mdx"), getBasicPage(c));
+  fs.writeFileSync(path.join(componentsDoczPath, c + '.mdx'), getBasicPage(c));
 });

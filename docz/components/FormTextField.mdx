@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormTextField
 ---
 
-import Form from "../FormTest";
-import { FormTextField } from "../../src";
+import Form from '../FormTest';
+import FormTextField from '../../src/components/FormTextField';
 import { Playground, Props } from 'docz';
 
 # FormTextField
@@ -16,11 +16,7 @@ import { Playground, Props } from 'docz';
   <Form
     render={() => {
       return (
-        <FormTextField
-          icon="extension"
-          name="fieldName"
-          label="Field Label"
-        />
+        <FormTextField icon="extension" name="fieldName" label="Field Label" />
       );
     }}
   />
@@ -28,4 +24,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormTextField}/>
+<Props of={FormTextField} />

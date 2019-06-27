@@ -20,7 +20,8 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "esModuleInterop": true,
-    "outDir": "dist/types"
+    "outDir": "dist/types",
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"],
   "exclude": ["./node_modules", "build", "config", "tests"],

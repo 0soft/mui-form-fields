@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormChipField
 ---
 
-import Form from "../FormTest";
-import { FormChipField } from "../../src";
+import Form from '../FormTest';
+import FormChipField from '../../src/components/FormChipField';
 import { Playground, Props } from 'docz';
 
 # FormChipField
@@ -19,7 +19,8 @@ import { Playground, Props } from 'docz';
         <FormChipField
           icon="extension"
           name="fieldName"
-          label="Field Label"value={["Chip A","Chip B","Chip C"]}
+          label="Field Label"
+          value={['Chip A', 'Chip B', 'Chip C']}
         />
       );
     }}
@@ -28,4 +29,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormChipField}/>
+<Props of={FormChipField} />

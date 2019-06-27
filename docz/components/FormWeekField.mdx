@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormWeekField
 ---
 
-import Form from "../FormTest";
-import { FormWeekField } from "../../src";
+import Form from '../FormTest';
+import FormWeekField from '../../src/components/FormWeekField';
 import { Playground, Props } from 'docz';
 
 # FormWeekField
@@ -16,11 +16,7 @@ import { Playground, Props } from 'docz';
   <Form
     render={() => {
       return (
-        <FormWeekField
-          icon="extension"
-          name="fieldName"
-          label="Field Label"
-        />
+        <FormWeekField icon="extension" name="fieldName" label="Field Label" />
       );
     }}
   />
@@ -28,4 +24,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormWeekField}/>
+<Props of={FormWeekField} />
