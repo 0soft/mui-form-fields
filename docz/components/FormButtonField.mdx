@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormButtonField
 ---
 
-import Form from "../FormTest";
-import { FormButtonField } from "../../src";
+import Form from '../FormTest';
+import FormButtonField from '../../src/components/FormButtonField';
 import { Playground, Props } from 'docz';
 
 # FormButtonField
@@ -19,7 +19,8 @@ import { Playground, Props } from 'docz';
         <FormButtonField
           icon="extension"
           name="fieldName"
-          label="Field Label"text="Click me!!!"
+          label="Field Label"
+          text="Click me!!!"
         />
       );
     }}
@@ -28,4 +29,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormButtonField}/>
+<Props of={FormButtonField} />

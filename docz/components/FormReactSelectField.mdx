@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormReactSelectField
 ---
 
-import Form from "../FormTest";
-import { FormReactSelectField } from "../../src";
+import Form from '../FormTest';
+import FormReactSelectField from '../../src/components/FormReactSelectField';
 import { Playground, Props } from 'docz';
 
 # FormReactSelectField
@@ -19,7 +19,13 @@ import { Playground, Props } from 'docz';
         <FormReactSelectField
           icon="extension"
           name="fieldName"
-          label="Field Label"options={[{"label":"Owner","value":"owner"},{"label":"Admin","value":"admin"},{"label":"Manager","value":"manager"},{"label":"Stakeholder","value":"stakeholder"}]}
+          label="Field Label"
+          options={[
+            { label: 'Owner', value: 'owner' },
+            { label: 'Admin', value: 'admin' },
+            { label: 'Manager', value: 'manager' },
+            { label: 'Stakeholder', value: 'stakeholder' },
+          ]}
         />
       );
     }}
@@ -28,4 +34,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormReactSelectField}/>
+<Props of={FormReactSelectField} />

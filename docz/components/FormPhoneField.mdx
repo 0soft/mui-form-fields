@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormPhoneField
 ---
 
-import Form from "../FormTest";
-import { FormPhoneField } from "../../src";
+import Form from '../FormTest';
+import FormPhoneField from '../../src/components/FormPhoneField';
 import { Playground, Props } from 'docz';
 
 # FormPhoneField
@@ -16,11 +16,7 @@ import { Playground, Props } from 'docz';
   <Form
     render={() => {
       return (
-        <FormPhoneField
-          icon="extension"
-          name="fieldName"
-          label="Field Label"
-        />
+        <FormPhoneField icon="extension" name="fieldName" label="Field Label" />
       );
     }}
   />
@@ -28,4 +24,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormPhoneField}/>
+<Props of={FormPhoneField} />

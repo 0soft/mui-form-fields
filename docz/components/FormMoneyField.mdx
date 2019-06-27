@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormMoneyField
 ---
 
-import Form from "../FormTest";
-import { FormMoneyField } from "../../src";
+import Form from '../FormTest';
+import FormMoneyField from '../../src/components/FormMoneyField';
 import { Playground, Props } from 'docz';
 
 # FormMoneyField
@@ -16,11 +16,7 @@ import { Playground, Props } from 'docz';
   <Form
     render={() => {
       return (
-        <FormMoneyField
-          icon="extension"
-          name="fieldName"
-          label="Field Label"
-        />
+        <FormMoneyField icon="extension" name="fieldName" label="Field Label" />
       );
     }}
   />
@@ -28,4 +24,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormMoneyField}/>
+<Props of={FormMoneyField} />

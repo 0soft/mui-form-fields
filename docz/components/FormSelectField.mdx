@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormSelectField
 ---
 
-import Form from "../FormTest";
-import { FormSelectField } from "../../src";
+import Form from '../FormTest';
+import FormSelectField from '../../src/components/FormSelectField';
 import { Playground, Props } from 'docz';
 
 # FormSelectField
@@ -19,7 +19,13 @@ import { Playground, Props } from 'docz';
         <FormSelectField
           icon="extension"
           name="fieldName"
-          label="Field Label"options={[{"label":"Owner","value":"owner"},{"label":"Admin","value":"admin"},{"label":"Manager","value":"manager"},{"label":"Stakeholder","value":"stakeholder"}]}
+          label="Field Label"
+          options={[
+            { label: 'Owner', value: 'owner' },
+            { label: 'Admin', value: 'admin' },
+            { label: 'Manager', value: 'manager' },
+            { label: 'Stakeholder', value: 'stakeholder' },
+          ]}
         />
       );
     }}
@@ -28,4 +34,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormSelectField}/>
+<Props of={FormSelectField} />

@@ -4,8 +4,8 @@ menu: Components
 route: /components/FormShowField
 ---
 
-import Form from "../FormTest";
-import { FormShowField } from "../../src";
+import Form from '../FormTest';
+import FormShowField from '../../src/components/FormShowField';
 import { Playground, Props } from 'docz';
 
 # FormShowField
@@ -19,7 +19,8 @@ import { Playground, Props } from 'docz';
         <FormShowField
           icon="extension"
           name="fieldName"
-          label="Field Label"value="This is a permanently disabled field that only displays things"
+          label="Field Label"
+          value="This is a permanently disabled field that only displays things"
         />
       );
     }}
@@ -28,4 +29,4 @@ import { Playground, Props } from 'docz';
 
 ## Properties
 
-<Props of={FormShowField}/>
+<Props of={FormShowField} />
