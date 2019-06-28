@@ -3,7 +3,7 @@ import handleValidators from '../../src/utils/validators';
 
 describe('Validators', () => {
   it('should check if all validators return a function', () => {
-    ['required', 'number', 'integer', 'email', 'min:5'].forEach(it => {
+    ['required', 'number', 'integer', 'email', 'min:5', 'max:5'].forEach(it => {
       expect(handleValidators(it)).toBeFunction();
     });
   });
