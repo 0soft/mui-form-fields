@@ -13,7 +13,7 @@
   "scripts": {
     "test": "jest --updateSnapshot --config=./config/jest/config.json",
     "test-watch": "jest --watch --coverage --config=./config/jest/config.json",
-    "coveralls": "jest --coverage --config=./config/jest/config.json && cat ./tests/__coverage__/lcov.info | coveralls",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov --config=./config/jest/config.json | ./node_modules/coveralls/bin/coveralls.js",
     "build-debug": "webpack --mode development --devtool inline-source-map",
     "build-production": "NODE_ENV=production webpack --mode production --output-filename mui-form-fields.min.js",
     "build": "npm run build-debug && npm run build-production && cp src/components/Pickers/types.ts dist/types/components/Pickers/types.d.ts",
