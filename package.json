@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/0soft/mui-form-fields/issues"
   },
-  "homepage": "https://github.com/0soft/mui-form-fields#readme",
+  "homepage": "https://mui-form-fields.0soft.dev",
   "peerDependencies": {
     "@date-io/core": "^1.3.6",
     "@date-io/moment": "^1.3.6",
