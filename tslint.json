@@ -5,7 +5,9 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "max-line-length": { "options": 100 },
+    "max-line-length": {
+      "options": 100
+    },
     "interface-name": false,
     "no-var-requires": false,
     "prettier": [true, ".prettierrc"],
@@ -13,6 +15,8 @@
     "ordered-imports": false
   },
   "jsRules": {
-    "max-line-length": { "options": [100] }
+    "max-line-length": {
+      "options": [100]
+    }
   }
 }

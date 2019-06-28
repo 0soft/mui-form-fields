@@ -125,8 +125,7 @@
     "fields",
     "react"
   ],
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Francisross Soares de Oliveira",
       "email": "franciscpd@gmail.com",
       "url": "https://github.com/franciscpd"
@@ -135,6 +134,11 @@
       "name": "Nihey Takizawa",
       "email": "nihey.takizawa@gmail.com",
       "url": "https://github.com/nihey"
+    },
+    {
+      "name": "Eduardo Sigrist Ciciliato",
+      "email": "eduardo.ciciliato@gmail.com",
+      "url": "https://github.com/edusig"
     }
   ]
 }
