@@ -128,7 +128,8 @@
     "fields",
     "react"
   ],
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Francisross Soares de Oliveira",
       "email": "franciscpd@gmail.com",
       "url": "https://github.com/franciscpd"

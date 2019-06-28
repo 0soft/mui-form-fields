@@ -7,7 +7,7 @@ cache:
 before_install:
   - npm update
 install:
-  - npm install
+  - npm ci
 script:
   - npm test
   - npm run coveralls
