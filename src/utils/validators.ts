@@ -1,17 +1,19 @@
 import { getFnc } from './index';
 
-export type FieldValidator = (value: any) => any | undefined;
+export type FieldValidator = (value: any) => string | void | undefined;
 
 interface Validators {
   required: FieldValidator;
   number: FieldValidator;
   integer: FieldValidator;
   email: FieldValidator;
-  min: ((min: number) => FieldValidator) | null;
+  min: (min: number) => FieldValidator;
+  max: (max: number) => FieldValidator;
+  [key: string]: FieldValidator | ((...args: any[]) => FieldValidator);
 }
 
 const validators: Validators = {
-  required: (value: any) => {
+  required: (value: any): string | void => {
     if (typeof value === 'string') {
       value = value.trim();
     }
@@ -20,85 +22,70 @@ const validators: Validators = {
       value === undefined ||
       value === '' ||
       value === '__null__' ||
-      (Array.isArray(value) && !value.length) ||
+      (typeof value === 'number' && validators.number(value) != null) ||
+      (Array.isArray(value) && (!value.length || validators.required(value[0]) != null)) ||
       (Object.entries(value).length === 0 && value.constructor === Object)
     ) {
       return 'Required';
     }
-
-    return undefined;
   },
-  number: (value: any) => {
-    if ((value && isNaN(Number(value))) || isNaN(value)) {
+  number: (value: any): string | void => {
+    const nvalue = Number(value);
+    if (isNaN(nvalue) || !isFinite(nvalue)) {
       return 'Must be a number';
     }
-
-    return undefined;
   },
-  integer: (value: any) => {
-    if (value && !Number.isInteger(Number(value))) {
+  integer: (value: any): string | void => {
+    if (validators.number(value) || !Number.isSafeInteger(Number(value))) {
       return 'Must be an integer';
     }
-
-    return undefined;
   },
-  email: (value: any) => {
+  email: (value: any): string | void => {
     if (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
       return 'Invalid email address';
     }
-
-    return undefined;
   },
-  min: (min: number) => (value: any) => {
-    if (value && value.length < min) {
+  min: (min: number) => (value: any): string | void => {
+    if (validators.required(value) || value.toString().length < min) {
       return `Must contain at least ${min} characters`;
     }
-
-    return undefined;
+  },
+  max: (max: number) => (value: any): string | void => {
+    if (value && value.toString().length > max) {
+      return `Must contain at most ${max} characters`;
+    }
   },
 };
 
 const composeValidators = (validators: FieldValidator[]) => (value: any) =>
   validators.reduce(
-    (error: Boolean, validator: FieldValidator) =>
+    (error: string | undefined, validator: FieldValidator) =>
       error || (validator && validator(value)),
     undefined
   );
 
-export const handleValidator = (validate: string) => {
-  let validatorFnc: FieldValidator[] = [];
+const isFn = (fn: any) => {
+  return fn && {}.toString.call(fn) === '[object Function]';
+};
 
-  validate.split('|').forEach((it: string) => {
-    switch (it.split(':')[0].trim()) {
-      case 'required':
-        return validatorFnc.push(getFnc(validators, 'required'));
-      case 'number':
-        return validatorFnc.push(getFnc(validators, 'number'));
-      case 'integer':
-        return validatorFnc.push(getFnc(validators, 'integer'));
-      case 'email':
-        return validatorFnc.push(getFnc(validators, 'email'));
-      case 'min':
-        if (it.split(':')[1]) {
-          const fnMin = getFnc(validators, 'min');
-          if (fnMin) {
-            return validatorFnc.push(
-              fnMin && fnMin(Number(it.split(':')[1].trim()))
-            );
-          }
-          return;
-        }
-        return;
-      default:
-        return;
-    }
-  });
-
-  if (validatorFnc.length) {
-    return composeValidators(validatorFnc);
-  }
-
-  return undefined;
+const handleValidator = (validate: string) => {
+  const fns = validate
+    .split('|')
+    .map((it: string) => {
+      if (it == null) {
+        return null;
+      }
+      const parts = it.split(':');
+      const fn = getFnc(validators, parts[0].trim() as any);
+      if (fn != null && parts.length > 1) {
+        return fn.apply(null, parts.slice(1));
+      } else if (fn == null || (fn != null && isFn(fn(undefined)))) {
+        return null;
+      }
+      return fn;
+    })
+    .filter((it: FieldValidator | undefined) => it != null);
+  return fns.length > 0 ? composeValidators(fns) : undefined;
 };
 
 export default handleValidator;
