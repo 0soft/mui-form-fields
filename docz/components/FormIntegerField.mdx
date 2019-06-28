@@ -1,0 +1,31 @@
+---
+name: FormIntegerField
+menu: Components
+route: /components/FormIntegerField
+---
+
+import Form from '../FormTest';
+import FormIntegerField from '../../src/components/FormIntegerField';
+import { Playground, Props } from 'docz';
+
+# FormIntegerField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormIntegerField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormIntegerField} />

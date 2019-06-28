@@ -1,14 +1,24 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "max-line-length": {
       "options": 100
     },
     "interface-name": false,
     "no-var-requires": false,
+<<<<<<< HEAD
     "quotemark": [true, "single", "jsx-double"],
     "trailing-comma": true,
     "member-access": false
+=======
+    "prettier": [true, ".prettierrc"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false
+>>>>>>> master
   },
   "jsRules": {
     "max-line-length": {

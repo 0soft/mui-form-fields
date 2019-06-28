@@ -1,0 +1,32 @@
+---
+name: FormReadOnlyField
+menu: Components
+route: /components/FormReadOnlyField
+---
+
+import Form from '../FormTest';
+import FormReadOnlyField from '../../src/components/FormReadOnlyField';
+import { Playground, Props } from 'docz';
+
+# FormReadOnlyField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormReadOnlyField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+          value="This value serves only for reading purposes"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormReadOnlyField} />

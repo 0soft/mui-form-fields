@@ -43,4 +43,4 @@ export const styles = ({ palette, typography }: Theme) =>
     },
   });
 
-  export default styles;
+export default styles;

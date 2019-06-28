@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { InputAdornment, Icon } from '@material-ui/core';
+import { Icon, InputAdornment } from '@material-ui/core';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
+import * as React from 'react';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
 import { FieldValidator, setFocus } from '../utils';
 import FormField from './FormField';
 import { DatePicker } from './Pickers';
-import { FieldInputProps, FieldMetaState } from 'react-final-form';
 
 interface FormDateFieldProps {
   icon?: string | React.ReactElement;
@@ -20,7 +20,7 @@ interface FormDateFieldProps {
     | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
     | undefined;
   onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
-  views?: ('year' | 'date' | 'month')[];
+  views?: Array<'year' | 'date' | 'month'>;
 }
 
 const FormDateField: React.SFC<FormDateFieldProps> = ({
@@ -95,11 +95,14 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
                     position="end"
                     onClick={setFocus}
                     style={{
-                      alignSelf: 'start',
+                      alignSelf: 'center',
                       cursor: disabled ? 'default' : 'pointer',
                     }}
                   >
-                    <Icon fontSize="small" style={{ color: '#757575' }}>
+                    <Icon
+                      fontSize="small"
+                      style={{ color: '#757575', alignSelf: 'center' }}
+                    >
                       create
                     </Icon>
                   </InputAdornment>

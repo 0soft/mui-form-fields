@@ -1,0 +1,31 @@
+---
+name: FormSwitchField
+menu: Components
+route: /components/FormSwitchField
+---
+
+import Form from '../FormTest';
+import FormSwitchField from '../../src/components/FormSwitchField';
+import { Playground, Props } from 'docz';
+
+# FormSwitchField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormSwitchField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormSwitchField} />

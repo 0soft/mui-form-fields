@@ -1,0 +1,135 @@
+---
+name: Getting Started
+route: /
+---
+
+# Getting Started
+
+## Installation
+
+Install all of MUI Form Fields Peer Dependencies
+
+```bash
+npm i --save @date-io/core @date-io/moment @material-ui/core @material-ui/icons classnames core-js css-vendor final-form is-plain-object jss moment react react-dom react-dropzone react-final-form react-select react-text-mask text-mask-addons
+```
+
+Then install MUI Form Fields
+
+```bash
+npm i --save mui-form-fields
+```
+
+## Usage
+
+This Form Components are primarily based on Final Form, you can take a look
+into their [documentation](https://github.com/final-form/final-form) for more
+advanced instructions.
+
+import {
+  FormDateField,
+  FormDialog,
+  FormFileUploadField,
+  FormPhoneField,
+  FormSwitchField,
+  FormSelectField,
+  FormTextField,
+} from '../src';
+import Form from "./FormTest";
+import ToggleButton from "./ToggleButton";
+import { Divider } from '@material-ui/core';
+import { Playground } from 'docz';
+
+You'll always need a `<Form>` component wrapping our Form Fields, so as long as
+you have a code like this:
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormTextField
+          icon="person"
+          name="name"
+          label="Name"
+        />
+      );
+    }}
+  />
+</Playground>
+
+This way you may just start importing our components and play around with a
+combination of them:
+
+```javascript
+import {
+  FormDateField,
+  FormDialog,
+  FormFileUploadField,
+  FormPhoneField,
+  FormSwitchField,
+  FormTextField,
+} from 'mui-form-fields';
+
+// Do your magic here...
+```
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <>
+          <FormTextField
+            icon="person"
+            name="name"
+            label="Name (min: 3 characters)"
+            validate="required | min:3"
+          />
+          <Divider />
+          <FormTextField
+            icon="mail"
+            name="email"
+            label="Email"
+            validate="required | email"
+          />
+          <FormSwitchField icon="security" name="protected" label="Protected" />
+        </>
+      );
+    }}
+  />
+</Playground>
+
+## Examples
+
+Even complex dialogs can be mounted as easily as:
+
+<Playground>
+  <ToggleButton
+    text="Open Dialog"
+    variant="contained"
+    color="primary"
+    render={(open, setOpen) => {
+      // The really important code:
+      return (
+        <FormDialog
+          size="sm"
+          title="Create User"
+          onClose={() => setOpen(false)}
+          onSubmit={(...args) => setOpen(false)}
+          open={open}
+          dividers
+        >
+          <FormTextField icon="person" name="name" label="Full Name" />
+          <FormTextField icon="mail" name="email" label="Email" />
+          <FormPhoneField name="phone" label="Phone" />
+          <FormDateField icon="today" name="birthday" label="Birthday" />
+          <FormSwitchField icon="security" name="protected" label="Protected" />
+          <FormSwitchField icon="verified_user" name="admin" label="Admin" />
+          <FormFileUploadField
+            icon="attachment"
+            name="identification"
+            label="Social Security"
+          />
+        </FormDialog>
+      );
+    }}
+  />
+</Playground>

@@ -1,15 +1,15 @@
+import { Icon, InputAdornment, TextField } from '@material-ui/core';
 import * as React from 'react';
-import { InputAdornment, TextField, Icon } from '@material-ui/core';
+import { FieldInputProps, FieldMetaState } from 'react-final-form';
 import {
-  FieldValidator,
-  FieldParser,
   FieldFormatter,
-  setFocus,
+  FieldParser,
+  FieldValidator,
   FormatterOptions,
   ParserOptions,
+  setFocus,
 } from '../utils';
 import FormField from './FormField';
-import { FieldInputProps, FieldMetaState } from 'react-final-form';
 
 interface FormTextFieldProps {
   icon?: string | React.ReactElement;
@@ -62,7 +62,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
         input: FieldInputProps<HTMLElement>;
         meta: FieldMetaState;
       }) => {
-        value = value || input.value;
+        const setValue = value || input.value;
         return (
           <TextField
             className="form-field-input"
@@ -74,7 +74,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
             rows={rows}
             margin={margin}
             {...input}
-            value={value}
+            value={setValue}
             disabled={disabled}
             error={Boolean(meta.touched && meta.error)}
             helperText={meta.touched ? meta.error : ''}
@@ -84,11 +84,14 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
                   position="end"
                   onClick={setFocus}
                   style={{
-                    alignSelf: 'start',
+                    alignSelf: 'center',
                     cursor: disabled ? 'default' : 'pointer',
                   }}
                 >
-                  <Icon fontSize="small" style={{ color: '#757575' }}>
+                  <Icon
+                    fontSize="small"
+                    style={{ color: '#757575', alignSelf: 'center' }}
+                  >
                     create
                   </Icon>
                 </InputAdornment>

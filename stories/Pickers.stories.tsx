@@ -68,7 +68,7 @@ storiesOf('Pickers', module)
       <React.Fragment>
         <DateRangePicker icon="today" label="Label" />
         <Divider style={defaulStyleDivider} />
-        <DateRangePicker icon="today" label="Month" views={["month"]} />
+        <DateRangePicker icon="today" label="Month" views={['month']} />
         <Divider style={defaulStyleDivider} />
         <DateRangePicker icon="today" label="AutoOK" autoOk />
         <Divider style={defaulStyleDivider} />

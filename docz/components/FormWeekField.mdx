@@ -1,0 +1,27 @@
+---
+name: FormWeekField
+menu: Components
+route: /components/FormWeekField
+---
+
+import Form from '../FormTest';
+import FormWeekField from '../../src/components/FormWeekField';
+import { Playground, Props } from 'docz';
+
+# FormWeekField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormWeekField icon="extension" name="fieldName" label="Field Label" />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormWeekField} />

@@ -1,0 +1,37 @@
+---
+name: FormReactSelectField
+menu: Components
+route: /components/FormReactSelectField
+---
+
+import Form from '../FormTest';
+import FormReactSelectField from '../../src/components/FormReactSelectField';
+import { Playground, Props } from 'docz';
+
+# FormReactSelectField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormReactSelectField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+          options={[
+            { label: 'Owner', value: 'owner' },
+            { label: 'Admin', value: 'admin' },
+            { label: 'Manager', value: 'manager' },
+            { label: 'Stakeholder', value: 'stakeholder' },
+          ]}
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormReactSelectField} />

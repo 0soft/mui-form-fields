@@ -1,0 +1,32 @@
+---
+name: FormShowField
+menu: Components
+route: /components/FormShowField
+---
+
+import Form from '../FormTest';
+import FormShowField from '../../src/components/FormShowField';
+import { Playground, Props } from 'docz';
+
+# FormShowField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormShowField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+          value="This is a permanently disabled field that only displays things"
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormShowField} />

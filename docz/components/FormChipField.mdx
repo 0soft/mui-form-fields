@@ -1,0 +1,32 @@
+---
+name: FormChipField
+menu: Components
+route: /components/FormChipField
+---
+
+import Form from '../FormTest';
+import FormChipField from '../../src/components/FormChipField';
+import { Playground, Props } from 'docz';
+
+# FormChipField
+
+## Example
+
+<Playground>
+  <Form
+    render={() => {
+      return (
+        <FormChipField
+          icon="extension"
+          name="fieldName"
+          label="Field Label"
+          value={['Chip A', 'Chip B', 'Chip C']}
+        />
+      );
+    }}
+  />
+</Playground>
+
+## Properties
+
+<Props of={FormChipField} />

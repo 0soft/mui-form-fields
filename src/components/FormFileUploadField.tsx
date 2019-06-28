@@ -1,10 +1,10 @@
+import { Button, Chip } from '@material-ui/core';
+import AttachmentIcon from '@material-ui/icons/Attachment';
 import * as React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Chip, Button } from '@material-ui/core';
-import AttachmentIcon from '@material-ui/icons/Attachment';
 import { FieldInputProps, FieldMetaState } from 'react-final-form';
-import FormField from './FormField';
 import { setFocus } from '../utils';
+import FormField from './FormField';
 
 interface FormFileUploadFieldProps {
   icon?: string | React.ReactElement;
@@ -52,6 +52,8 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
       hasIcon={hasIcon}
       validate={required ? 'required' : undefined}
       className={className}
+      alignItems="start"
+      iconPadding="16px"
       render={({
         input,
         meta,
@@ -156,7 +158,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                         icon={<AttachmentIcon />}
                         label={file.name}
                         onDelete={() => {
-                          let files = input.value.filter(
+                          const files = input.value.filter(
                             (it: File) => it.name !== file.name
                           );
                           input.onChange(files);
