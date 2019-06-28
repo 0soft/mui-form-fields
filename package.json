@@ -11,7 +11,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest --coverage --config=./config/jest/config.json",
+    "test": "jest --coverage --updateSnapshot --config=./config/jest/config.json",
     "test-watch": "jest --watch --coverage --config=./config/jest/config.json",
     "coveralls": "jest --coverage --config=./config/jest/config.json && cat ./tests/__coverage__/lcov.info | coveralls",
     "build-debug": "webpack --mode development --devtool inline-source-map",
@@ -128,8 +128,7 @@
     "fields",
     "react"
   ],
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Francisross Soares de Oliveira",
       "email": "franciscpd@gmail.com",
       "url": "https://github.com/franciscpd"
