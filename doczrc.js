@@ -3,6 +3,9 @@ export default {
   codeSandbox: false,
   typescript: true,
   menu: ['Getting Started', 'Components'],
+  indexHtml: {
+    production: 'docz/index.html',
+  }[process.env.NODE_ENV],
   themeConfig: {
     showPlaygroundEditor: true,
   },

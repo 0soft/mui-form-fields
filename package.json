@@ -19,7 +19,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "docz:dev": "docz dev",
-    "docz:build": "docz build && cp _redirects .docz/dist/"
+    "docz:build": "NODE_ENV=production docz build && cp _redirects .docz/dist/"
   },
   "repository": {
     "type": "git",
