@@ -2,54 +2,51 @@ import { getFnc } from './index';
 import moment from 'moment';
 
 export type FieldParser = (value: any) => any | undefined;
-export type ParserOptions =
-  | 'integer'
-  | 'float'
-  | 'money'
-  | 'percentage'
-  | 'date'
-  | undefined;
+export type ParserOptions = 'integer' | 'float' | 'money' | 'percentage' | 'date';
 
 interface Parsers {
   integer: FieldParser;
   float: FieldParser;
   date: FieldParser;
+  [key: string]: FieldParser;
 }
+
+const aliases: { [key: string]: ParserOptions } = {
+  percentage: 'float',
+  money: 'float',
+};
 
 const parsers: Parsers = {
   float: (value: any) => {
-    const response = (value || '')
-      .toString()
-      .replace(new RegExp('[^0-9.-]', 'g'), '');
+    const response = (value || '').toString().replace(new RegExp('[^0-9.-]', 'g'), '');
     return parseFloat(response) || 0;
   },
   integer: (value: any) => {
     let parsed = parseInt(value, 10);
-    return isNaN(parsed) ? null : parsed;
+    return isNaN(parsed) ? 0 : parsed;
   },
   date: (value: any) => {
     if (!value) {
-      return value;
+      return null;
     }
-    return moment(value, [
+    const parsed = moment(value, [
       'YYYY-MM-DD',
       'DD/MM/YYYY',
       'DD/MM/YY',
       'DDMMYYYY',
       'DD-MM-YYYY',
     ]);
+    return parsed.isValid() ? parsed : null;
   },
 };
 
 export const handleParser = (parse: ParserOptions) => {
-  if (parse === undefined) {
-    return undefined;
+  if (aliases.hasOwnProperty(parse)) {
+    parse = aliases[parse];
   }
-
-  if (parse === 'percentage' || parse === 'money') {
-    parse = 'float';
+  if (parse == null) {
+    return;
   }
-
   return getFnc(parsers, parse);
 };
 
