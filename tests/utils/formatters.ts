@@ -71,10 +71,10 @@ describe('Formatters', () => {
       expect(formatter(it)).toBeUndefined();
     });
     ['2019-07-01T13:18:48'].forEach(it => {
-      expect(formatter(it)).toEqual('2019-07-01T13:18:48-03:00');
+      expect(formatter(it).substr(0, 19)).toEqual('2019-07-01T13:18:48');
     });
     ['2019-07-01'].forEach(it => {
-      expect(formatter(it)).toEqual('2019-07-01T00:00:00-03:00');
+      expect(formatter(it).substr(0, 19)).toEqual('2019-07-01T00:00:00');
     });
   });
 });
