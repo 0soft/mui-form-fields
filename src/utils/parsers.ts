@@ -1,4 +1,4 @@
-import { getFnc } from './index';
+import { getFnc } from './helpers';
 import moment from 'moment';
 
 export type FieldParser = (value: any) => any | undefined;
@@ -8,19 +8,19 @@ export type ParserOptions =
   | 'money'
   | 'percentage'
   | 'date'
+  | 'dateTime'
   | undefined;
 
 interface Parsers {
   integer: FieldParser;
   float: FieldParser;
   date: FieldParser;
+  dateTime: FieldParser;
 }
 
 const parsers: Parsers = {
   float: (value: any) => {
-    const response = (value || '')
-      .toString()
-      .replace(new RegExp('[^0-9.-]', 'g'), '');
+    const response = (value || '').toString().replace(new RegExp('[^0-9.-]', 'g'), '');
     return parseFloat(response) || 0;
   },
   integer: (value: any) => {
@@ -31,17 +31,24 @@ const parsers: Parsers = {
     if (!value) {
       return value;
     }
+    return moment(value, ['YYYY-MM-DD', 'DD/MM/YYYY', 'DD/MM/YY', 'DDMMYYYY', 'DD-MM-YYYY']);
+  },
+  dateTime: (value: any) => {
+    if (!value) {
+      return value;
+    }
     return moment(value, [
-      'YYYY-MM-DD',
-      'DD/MM/YYYY',
-      'DD/MM/YY',
-      'DDMMYYYY',
-      'DD-MM-YYYY',
+      moment.ISO_8601,
+      'YYYY-MM-DD HH:mm:ss',
+      'DD/MM/YYYY HH:mm:ss',
+      'DD/MM/YY HH:mm:ss',
+      'HHmmssDDMMYYYY',
+      'HH:mm:ss DD-MM-YYYY',
     ]);
   },
 };
 
-export const handleParser = (parse: ParserOptions) => {
+const handleParser = (parse: ParserOptions) => {
   if (parse === undefined) {
     return undefined;
   }
