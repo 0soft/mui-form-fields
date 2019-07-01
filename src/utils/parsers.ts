@@ -48,7 +48,6 @@ const parsers: Parsers = {
       'YYYY-MM-DD HH:mm:ss',
       'DD/MM/YYYY HH:mm:ss',
       'DD/MM/YY HH:mm:ss',
-      'HHmmssDDMMYYYY',
       'HH:mm:ss DD-MM-YYYY',
     ]);
     return parsed.isValid() ? parsed : null;

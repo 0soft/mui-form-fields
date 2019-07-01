@@ -65,13 +65,13 @@ const formatters: Formatters = {
   date: (value: any) => {
     if (value != null) {
       const date = dateParser(value);
-      return date.isValid() ? date.format('YYYY-MM-DD') : undefined;
+      return date != null && date.isValid() ? date.format('YYYY-MM-DD') : undefined;
     }
   },
   dateTime: (value: any) => {
     if (value != null) {
       const date = dateTimeParser(value);
-      return date.isValid() ? date.format() : undefined;
+      return date != null && date.isValid() ? date.format() : undefined;
     }
   },
 };
