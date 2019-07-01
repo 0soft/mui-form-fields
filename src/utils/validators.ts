@@ -1,4 +1,4 @@
-import { getFnc } from './index';
+import { getFnc } from './helpers';
 
 export type FieldValidator = (value: any) => string | void | undefined;
 

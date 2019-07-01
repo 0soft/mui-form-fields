@@ -1,13 +1,9 @@
-import { getFnc } from './index';
+import { getFnc } from './helpers';
 import moment from 'moment';
+import handleParser from './parsers';
 
 export type FieldFormatter = (value: any) => any | undefined;
-export type FormatterOptions =
-  | 'percentage'
-  | 'money'
-  | 'date'
-  | 'dateTime'
-  | undefined;
+export type FormatterOptions = 'percentage' | 'money' | 'string' | 'date' | 'dateTime';
 
 interface Formatters {
   percentage: FieldFormatter;
@@ -15,80 +11,74 @@ interface Formatters {
   string: FieldFormatter;
   date: FieldFormatter;
   dateTime: FieldFormatter;
+  [key: string]: FieldFormatter;
 }
 
-const number = (
-  number: any,
-  lengthDecimal: number = 2,
-  lengthWholePart: number = 3,
-  sectionDelimiter: string = ',',
-  decimalDelimiter: string = '.'
-) => {
-  if (typeof number === 'string') {
-    number = parseFloat(number);
+interface DecimalFormatterOptions {
+  prefix?: string;
+  suffix?: string;
+  lengthDecimal?: number;
+  lengthWholePart?: number;
+  sectionDelimiter?: string;
+  decimalDelimiter?: string;
+}
+
+const floatParser = handleParser('float')!;
+const dateParser = handleParser('date')!;
+const dateTimeParser = handleParser('dateTime')!;
+
+const decimalFormatter = (val?: number, options?: DecimalFormatterOptions): string | void => {
+  if (val == null) {
+    return;
   }
 
-  if (!number && number !== 0) {
-    return '0';
-  }
+  const {
+    prefix = null,
+    suffix = null,
+    lengthDecimal = 2,
+    lengthWholePart = 3,
+    sectionDelimiter = ',',
+    decimalDelimiter = '.',
+  } = options || {};
 
-  var re =
-      '\\d(?=(\\d{' +
-      (lengthWholePart || 3) +
-      '})+' +
-      (lengthDecimal > 0 ? '\\D' : '$') +
-      ')',
-    num = number.toFixed(Math.max(0, ~~lengthDecimal));
+  const decimal = lengthDecimal > 0 ? '\\D' : '$';
+  const re = new RegExp(`\\d(?=(\\d{${lengthWholePart}})+${decimal})`, 'g');
 
-  return (decimalDelimiter ? num.replace('.', decimalDelimiter) : num).replace(
-    new RegExp(re, 'g'),
-    '$&' + sectionDelimiter
-  );
+  let num: string = val.toFixed(Math.max(0, ~~lengthDecimal));
+  num = decimalDelimiter != null ? num.replace('.', decimalDelimiter) : num;
+  num = num.replace(re, '$&' + sectionDelimiter);
+  return `${prefix || ''}${num}${suffix || ''}`;
 };
 
 const formatters: Formatters = {
   percentage: (value: any) => {
-    let formatted = number(value);
-
-    if (!formatted) {
-      return '';
-    }
-
-    return `${formatted}%`;
+    return decimalFormatter(floatParser(value), { suffix: '%', lengthDecimal: 0 });
   },
   money: (value: any) => {
-    if (value == undefined) return '';
-    let formatted = number(value);
-
-    if (!formatted) {
-      return '';
-    }
-
-    return `$ ${formatted}`;
+    return decimalFormatter(floatParser(value), { prefix: '$ ' });
   },
   string: (value: any) => {
-    if (value === null || value === undefined || isNaN(value)) {
-      value = '';
+    if (value != null && !isNaN(value)) {
+      return value.toString();
     }
-    return value.toString();
   },
   date: (value: any) => {
-    if (!value) {
-      return value;
+    if (value != null) {
+      const date = dateParser(value);
+      return date != null && date.isValid() ? date.format('YYYY-MM-DD') : undefined;
     }
-    return moment(value).format('YYYY-MM-DD');
   },
   dateTime: (value: any) => {
-    if (!value) {
-      return value;
+    if (value != null) {
+      const date = dateTimeParser(value);
+      return date != null && date.isValid() ? date.format() : undefined;
     }
-    return moment(value).format();
   },
 };
 
 export const handleFormatter = (formatter: FormatterOptions) => {
-  if (formatter === undefined) {
-    return undefined;
+  if (formatter == null) {
+    return;
   }
 
   return getFnc(formatters, formatter);

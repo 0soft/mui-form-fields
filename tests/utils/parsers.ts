@@ -52,6 +52,21 @@ describe('Parsers', () => {
       expect(moment.isMoment(parser(it))).toBeFalse();
     });
   });
+  describe('Date and Time', () => {
+    const parser = handleParsers('date');
+    [
+      '2019-07-01T14:36:45',
+      '2019-07-01 14:36:45',
+      '01/07/2019 14:36:45',
+      '01/07/19 14:36:45',
+      '14:36:45 01-07-2019',
+    ].forEach(it => {
+      expect(moment.isMoment(parser(it))).toBeTrue();
+    });
+    ['a', null, undefined, [], {}].forEach(it => {
+      expect(moment.isMoment(parser(it))).toBeFalse();
+    });
+  });
   describe('Percentage', () => {
     const parser = handleParsers('percentage');
     ['a%', null, undefined, [], {}].forEach(it => {
