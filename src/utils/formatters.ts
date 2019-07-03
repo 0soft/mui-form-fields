@@ -1,5 +1,4 @@
 import { getFnc } from './helpers';
-import moment from 'moment';
 import handleParser from './parsers';
 
 export type FieldFormatter = (value: any) => any | undefined;
