@@ -31,13 +31,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
   hasIcon,
   maxSize,
 }) => {
-  const {
-    getRootProps,
-    getInputProps,
-    open,
-    acceptedFiles,
-    isDragActive,
-  } = useDropzone({
+  const { getRootProps, getInputProps, open, acceptedFiles, isDragActive } = useDropzone({
     noClick: true,
     noKeyboard: true,
     multiple,
@@ -54,26 +48,15 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
       className={className}
       alignItems="start"
       iconPadding="16px"
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         React.useEffect(() => {
           const files = acceptedFiles.filter(
             it =>
               !multiple ||
-              !Boolean(
-                input.value &&
-                  input.value.filter((i: File) => i.name === it.name).length
-              )
+              !Boolean(input.value && input.value.filter((i: File) => i.name === it.name).length)
           );
 
-          input.onChange(
-            multiple && input.value ? input.value.concat(files) : files
-          );
+          input.onChange(multiple && input.value ? input.value.concat(files) : files);
         }, [acceptedFiles]);
 
         return (
@@ -99,9 +82,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                border: `dashed 2px ${
-                  meta.touched && meta.error ? '#F44336' : '#bdbdbd'
-                }`,
+                border: `dashed 2px ${meta.touched && meta.error ? '#F44336' : '#bdbdbd'}`,
                 width: '100%',
                 height,
                 position: 'relative',
@@ -122,11 +103,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                     className="fa fa-file"
                   />
                   <p>Drag the file here or</p>
-                  <Button
-                    onClick={open}
-                    disabled={disabled}
-                    variant="contained"
-                  >
+                  <Button onClick={open} disabled={disabled} variant="contained">
                     Click here
                   </Button>
                 </>
@@ -158,9 +135,7 @@ const FormFileUploadField: React.SFC<FormFileUploadFieldProps> = ({
                         icon={<AttachmentIcon />}
                         label={file.name}
                         onDelete={() => {
-                          const files = input.value.filter(
-                            (it: File) => it.name !== file.name
-                          );
+                          const files = input.value.filter((it: File) => it.name !== file.name);
                           input.onChange(files);
                         }}
                       />

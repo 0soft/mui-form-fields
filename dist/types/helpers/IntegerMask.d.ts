@@ -1,11 +1,11 @@
 /// <reference types="react" />
 declare const IntegerMask: {
-    (props: any): JSX.Element;
+  (props: any): JSX.Element;
+  displayName: string;
+  __docgenInfo: {
+    description: string;
     displayName: string;
-    __docgenInfo: {
-        "description": string;
-        "displayName": string;
-        "props": {};
-    };
+    props: {};
+  };
 };
 export default IntegerMask;

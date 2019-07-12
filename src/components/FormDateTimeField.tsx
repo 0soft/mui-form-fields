@@ -17,9 +17,7 @@ interface FormDateTimeFieldProps {
   max?: MaterialUiPickersDate;
   min?: MaterialUiPickersDate;
   ampm?: boolean;
-  labelFunc?:
-    | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
-    | undefined;
+  labelFunc?: ((date: MaterialUiPickersDate, invalidLabel: string) => string) | undefined;
   onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
 }
 
@@ -45,13 +43,7 @@ const FormDateTimeField: React.SFC<FormDateTimeFieldProps> = ({
       parse="date"
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         const handleChange = (date: MaterialUiPickersDate) => {
           onChange && onChange(date);
           input.onChange(date);

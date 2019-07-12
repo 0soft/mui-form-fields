@@ -25,11 +25,7 @@ storiesOf('FormDialogField', module).add('default', () => {
       <FormDateField icon="today" name="birthday" label="Birthday" />
       <FormSwitchField icon="security" name="protected" label="Protected" />
       <FormSwitchField icon="verified_user" name="admin" label="Admin" />
-      <FormFileUploadField
-        icon="attachment"
-        name="identification"
-        label="Social Security"
-      />
+      <FormFileUploadField icon="attachment" name="identification" label="Social Security" />
     </FormDialog>
   );
 });

@@ -44,25 +44,11 @@ storiesOf('FormFileUploadField', module)
         render={({ values }: { values: any }) => {
           return (
             <React.Fragment>
-              <FormFileUploadField
-                icon="attachment"
-                name="upload"
-                label="Single"
-              />
+              <FormFileUploadField icon="attachment" name="upload" label="Single" />
               <Divider variant="inset" />
-              <FormFileUploadField
-                icon="attachment"
-                name="multiple"
-                label="Multiple"
-                multiple
-              />
+              <FormFileUploadField icon="attachment" name="multiple" label="Multiple" multiple />
               <Divider variant="inset" />
-              <FormFileUploadField
-                icon="attachment"
-                name="disabled"
-                label="Disabled"
-                disabled
-              />
+              <FormFileUploadField icon="attachment" name="disabled" label="Disabled" disabled />
             </React.Fragment>
           );
         }}
@@ -77,12 +63,7 @@ storiesOf('FormFileUploadField', module)
         render={({ values }: { values: any }) => {
           return (
             <React.Fragment>
-              <FormFileUploadField
-                icon="attachment"
-                name="upload"
-                label="Single"
-                required
-              />
+              <FormFileUploadField icon="attachment" name="upload" label="Single" required />
               <Divider variant="inset" />
             </React.Fragment>
           );

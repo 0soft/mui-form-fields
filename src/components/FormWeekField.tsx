@@ -40,13 +40,7 @@ const FormWeekField: React.SFC<FormWeekFieldProps> = ({
       name={name}
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         const handleChange = (date: RangePicker) => {
           onChange && onChange(date);
           input.onChange(date);

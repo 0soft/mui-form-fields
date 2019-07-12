@@ -29,12 +29,7 @@ const FormChipField: React.SFC<FormChipFieldProps> = ({
       render={() => {
         const arr = Array.isArray(value) ? value : [value];
         const chips = arr.map((it, idx) => (
-          <Chip
-            label={it}
-            key={idx}
-            variant={variant}
-            style={{ marginRight: '10px' }}
-          />
+          <Chip label={it} key={idx} variant={variant} style={{ marginRight: '10px' }} />
         ));
         return (
           <div>

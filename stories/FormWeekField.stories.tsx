@@ -42,31 +42,13 @@ storiesOf('FormWeekField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            <FormWeekField
-              icon="calendar_today"
-              name="daterange"
-              label="Daterange"
-            />
+            <FormWeekField icon="calendar_today" name="daterange" label="Daterange" />
             <Divider variant="inset" />
-            <FormWeekField
-              icon="today"
-              name="date_initial"
-              label="Initial Date"
-            />
+            <FormWeekField icon="today" name="date_initial" label="Initial Date" />
             <Divider variant="inset" />
-            <FormWeekField
-              icon="today"
-              name="clearable"
-              label="Clearable"
-              clearable
-            />
+            <FormWeekField icon="today" name="clearable" label="Clearable" clearable />
             <Divider variant="inset" />
-            <FormWeekField
-              icon="today"
-              name="disabled"
-              label="Disabled"
-              disabled
-            />
+            <FormWeekField icon="today" name="disabled" label="Disabled" disabled />
           </React.Fragment>
         );
       }}

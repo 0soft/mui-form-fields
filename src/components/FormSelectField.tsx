@@ -44,13 +44,7 @@ const FormSelectField: React.FunctionComponent<FormSelectFieldProps> = ({
       name={name}
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         return (
           <FormControl style={{ width: '100%' }}>
             <InputLabel shrink>{label}</InputLabel>

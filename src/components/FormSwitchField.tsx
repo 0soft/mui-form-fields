@@ -41,13 +41,7 @@ const FormSwitchField: React.SFC<FormSwitchFieldProps> = ({
             disabled={disabled}
             label={label}
             labelPlacement={placement}
-            control={
-              <Switch
-                color="primary"
-                onClick={onClick}
-                {...omit(input, ['type'])}
-              />
-            }
+            control={<Switch color="primary" onClick={onClick} {...omit(input, ['type'])} />}
           />
         );
       }}

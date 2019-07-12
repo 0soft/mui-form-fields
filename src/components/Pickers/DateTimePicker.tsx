@@ -101,11 +101,7 @@ const DateTimePicker: React.SFC<DateTimePickerProps> = ({
         ...containerStyle,
       }}
     >
-      {icon && (
-        <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>
-          {icon}
-        </Icon>
-      )}
+      {icon && <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>{icon}</Icon>}
       <div
         style={{
           display: 'flex',

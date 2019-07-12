@@ -1,16 +1,16 @@
 import * as React from 'react';
-import MaskedInput from 'react-text-mask';
-import { createNumberMask } from '../utils';
+import NumberFormat from 'react-number-format';
 
 const MoneyMask = (props: any) => {
   const { inputRef, ...other } = props;
 
   return (
-    <MaskedInput
-      {...other}
+    <NumberFormat
+      decimalScale={2}
+      thousandSeparator={true}
+      prefix={'$ '}
       ref={inputRef}
-      guide={false}
-      mask={createNumberMask({ allowDecimal: true })}
+      {...other}
     />
   );
 };

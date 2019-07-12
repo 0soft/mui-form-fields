@@ -35,12 +35,7 @@ storiesOf('FormShowField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            <FormShowField
-              icon="person"
-              name="name"
-              label="Name"
-              value="Jhon Deere"
-            />
+            <FormShowField icon="person" name="name" label="Name" value="Jhon Deere" />
             <Divider variant="inset" />
             <FormShowField
               icon="notes"

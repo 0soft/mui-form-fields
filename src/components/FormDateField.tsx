@@ -16,9 +16,7 @@ interface FormDateFieldProps {
   clearable?: boolean;
   max?: MaterialUiPickersDate;
   min?: MaterialUiPickersDate;
-  labelFunc?:
-    | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
-    | undefined;
+  labelFunc?: ((date: MaterialUiPickersDate, invalidLabel: string) => string) | undefined;
   onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
   views?: Array<'year' | 'date' | 'month'>;
 }
@@ -43,13 +41,7 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
       name={name}
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         const handleChange = (date: MaterialUiPickersDate) => {
           onChange && onChange(date);
           input.onChange(date);
@@ -99,10 +91,7 @@ const FormDateField: React.SFC<FormDateFieldProps> = ({
                       cursor: disabled ? 'default' : 'pointer',
                     }}
                   >
-                    <Icon
-                      fontSize="small"
-                      style={{ color: '#757575', alignSelf: 'center' }}
-                    >
+                    <Icon fontSize="small" style={{ color: '#757575', alignSelf: 'center' }}>
                       create
                     </Icon>
                   </InputAdornment>

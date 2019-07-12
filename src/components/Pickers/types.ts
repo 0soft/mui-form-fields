@@ -12,9 +12,7 @@ export interface DatePickerProps {
   label?: React.ReactNode;
   value?: MaterialUiPickersDate | string;
   disabled?: boolean;
-  labelFunc?:
-    | ((date: MaterialUiPickersDate, invalidLabel: string) => string)
-    | undefined;
+  labelFunc?: ((date: MaterialUiPickersDate, invalidLabel: string) => string) | undefined;
   onChange?: ((date: MaterialUiPickersDate) => void) | undefined;
   TextFieldComponent?: React.ComponentType<TextFieldProps>;
   helperText?: React.ReactNode;

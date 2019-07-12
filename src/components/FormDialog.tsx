@@ -8,12 +8,7 @@ import {
   IconButton,
   Typography,
 } from '@material-ui/core';
-import {
-  createStyles,
-  Theme,
-  withStyles,
-  WithStyles,
-} from '@material-ui/core/styles';
+import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 import { Form } from 'react-final-form';
 
@@ -77,13 +72,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
       initialValues={initial}
       render={({ handleSubmit }) => {
         return (
-          <Dialog
-            scroll="body"
-            open={open}
-            onClose={onClose}
-            fullWidth
-            maxWidth={size}
-          >
+          <Dialog scroll="body" open={open} onClose={onClose} fullWidth maxWidth={size}>
             <form onSubmit={handleSubmit}>
               <DialogTitle className={classes.title} disableTypography>
                 <Typography variant="h6">{title}</Typography>

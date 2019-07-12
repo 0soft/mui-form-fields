@@ -35,12 +35,7 @@ storiesOf('FormReadOnlyField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            <FormReadOnlyField
-              icon="person"
-              name="name"
-              label="Name"
-              value="Jhon Deere"
-            />
+            <FormReadOnlyField icon="person" name="name" label="Name" value="Jhon Deere" />
             <Divider variant="inset" />
             <FormReadOnlyField
               icon="notes"

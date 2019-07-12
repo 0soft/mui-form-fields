@@ -44,8 +44,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
   hasIcon = true,
   validate,
 }) => {
-  const lowerlabel =
-    typeof label === 'string' ? label.toLowerCase() : 'information';
+  const lowerlabel = typeof label === 'string' ? label.toLowerCase() : 'information';
   placeholder = placeholder || `Please insert the ${lowerlabel} here...`;
   return (
     <FormField
@@ -55,13 +54,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
       parse={parse}
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         const setValue = value || input.value;
         return (
           <TextField
@@ -88,10 +81,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
                     cursor: disabled ? 'default' : 'pointer',
                   }}
                 >
-                  <Icon
-                    fontSize="small"
-                    style={{ color: '#757575', alignSelf: 'center' }}
-                  >
+                  <Icon fontSize="small" style={{ color: '#757575', alignSelf: 'center' }}>
                     create
                   </Icon>
                 </InputAdornment>

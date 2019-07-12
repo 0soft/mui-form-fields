@@ -44,39 +44,15 @@ storiesOf('FormDateField', module).add('default', () => {
           <React.Fragment>
             <FormDateField icon="today" name="date" label="Datepicker" />
             <Divider variant="inset" />
-            <FormDateField
-              icon="today"
-              name="date_initial"
-              label="Initial Date"
-            />
+            <FormDateField icon="today" name="date_initial" label="Initial Date" />
             <Divider variant="inset" />
-            <FormDateField
-              icon="today"
-              name="clearable"
-              label="Clearable"
-              clearable
-            />
+            <FormDateField icon="today" name="clearable" label="Clearable" clearable />
             <Divider variant="inset" />
-            <FormDateField
-              icon="today"
-              name="disabled"
-              label="Disabled"
-              disabled
-            />
+            <FormDateField icon="today" name="disabled" label="Disabled" disabled />
             <Divider variant="inset" />
-            <FormDateField
-              icon="today"
-              name="month"
-              label="Month"
-              views={['month']}
-            />
+            <FormDateField icon="today" name="month" label="Month" views={['month']} />
             <Divider variant="inset" />
-            <FormDateField
-              icon="today"
-              name="year"
-              label="Year"
-              views={['year']}
-            />
+            <FormDateField icon="today" name="year" label="Year" views={['year']} />
             <Button type="submit" variant="contained">
               SUBMIT
             </Button>

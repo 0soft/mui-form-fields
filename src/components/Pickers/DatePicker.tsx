@@ -1,9 +1,6 @@
 import MomentUtils from '@date-io/moment';
 import Icon from '@material-ui/core/Icon';
-import {
-  DatePicker as DatePickerBase,
-  MuiPickersUtilsProvider,
-} from '@material-ui/pickers';
+import { DatePicker as DatePickerBase, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
 import moment from 'moment';
 import * as React from 'react';
@@ -131,11 +128,7 @@ const DatePicker: React.SFC<DatePickerProps> = ({
         ...containerStyle,
       }}
     >
-      {icon && (
-        <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>
-          {icon}
-        </Icon>
-      )}
+      {icon && <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>{icon}</Icon>}
       <div
         style={{
           display: 'flex',
