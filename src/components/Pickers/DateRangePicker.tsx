@@ -3,10 +3,7 @@ import { Icon, IconButton, withStyles } from '@material-ui/core';
 import moment from 'moment';
 import MomentUtils from '@date-io/moment';
 import classnames from 'classnames';
-import {
-  MuiPickersUtilsProvider,
-  DatePicker as DatePickerBase,
-} from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, DatePicker as DatePickerBase } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers';
 import { DateRangePickerProps, RangePicker } from './types';
 import styles from './styles';
@@ -111,8 +108,7 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
           }
           setSelected(selectedDate);
         },
-        onMouseEnter: (e: React.MouseEvent) =>
-          setHover(day ? moment(day) : null),
+        onMouseEnter: (e: React.MouseEvent) => setHover(day ? moment(day) : null),
       },
       <div className={wrapperClassName}>
         <IconButton className={dayClassName}>
@@ -164,10 +160,8 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
 
   React.useEffect(() => {
     let internalValue = { ...selected };
-    let beginValue =
-      (value && value.begin) || (clearable ? null : moment().startOf('month'));
-    let endValue =
-      (value && value.end) || (clearable ? null : moment().endOf('month'));
+    let beginValue = (value && value.begin) || (clearable ? null : moment().startOf('month'));
+    let endValue = (value && value.end) || (clearable ? null : moment().endOf('month'));
 
     if (typeof beginValue === 'string') {
       beginValue = moment(beginValue);
@@ -214,11 +208,7 @@ const DateRangePicker: React.SFC<DateRangePickerProps> = ({
         ...containerStyle,
       }}
     >
-      {icon && (
-        <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>
-          {icon}
-        </Icon>
-      )}
+      {icon && <Icon style={{ marginRight: '10px', color: '#999999', ...iconStyle }}>{icon}</Icon>}
       <div
         style={{
           display: 'flex',

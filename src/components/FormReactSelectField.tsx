@@ -40,9 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
   chipFocused: {
     backgroundColor: emphasize(
-      theme.palette.type === 'light'
-        ? theme.palette.grey[300]
-        : theme.palette.grey[700],
+      theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700],
       0.08
     ),
   },
@@ -172,10 +170,7 @@ Placeholder.propTypes = {
 
 function SingleValue(props: any) {
   return (
-    <Typography
-      className={props.selectProps.classes.singleValue}
-      {...props.innerProps}
-    >
+    <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
       {props.children}
     </Typography>
   );
@@ -188,11 +183,7 @@ SingleValue.propTypes = {
 };
 
 function ValueContainer(props: any) {
-  return (
-    <div className={props.selectProps.classes.valueContainer}>
-      {props.children}
-    </div>
-  );
+  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>;
 }
 
 ValueContainer.propTypes = {
@@ -223,11 +214,7 @@ MultiValue.propTypes = {
 
 function Menu(props: any) {
   return (
-    <Paper
-      square
-      className={props.selectProps.classes.paper}
-      {...props.innerProps}
-    >
+    <Paper square className={props.selectProps.classes.paper} {...props.innerProps}>
       {props.children}
     </Paper>
   );
@@ -268,9 +255,7 @@ interface FormReactSelectFieldProps {
   multi?: boolean;
 }
 
-const FormReactSelectField: React.FunctionComponent<
-  FormReactSelectFieldProps
-> = ({
+const FormReactSelectField: React.FunctionComponent<FormReactSelectFieldProps> = ({
   icon = '',
   hasIcon = true,
   name,
@@ -301,13 +286,7 @@ const FormReactSelectField: React.FunctionComponent<
       name={name}
       hasIcon={hasIcon}
       validate={validate}
-      render={({
-        input,
-        meta,
-      }: {
-        input: FieldInputProps<HTMLElement>;
-        meta: FieldMetaState;
-      }) => {
+      render={({ input, meta }: { input: FieldInputProps<HTMLElement>; meta: FieldMetaState }) => {
         return (
           <div className={classes.root}>
             <Select

@@ -42,31 +42,13 @@ storiesOf('FormDateRangeField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            <FormDateRangeField
-              icon="calendar_today"
-              name="daterange"
-              label="Daterange"
-            />
+            <FormDateRangeField icon="calendar_today" name="daterange" label="Daterange" />
             <Divider variant="inset" />
-            <FormDateRangeField
-              icon="today"
-              name="date_initial"
-              label="Initial Date"
-            />
+            <FormDateRangeField icon="today" name="date_initial" label="Initial Date" />
             <Divider variant="inset" />
-            <FormDateRangeField
-              icon="today"
-              name="clearable"
-              label="Clearable"
-              clearable
-            />
+            <FormDateRangeField icon="today" name="clearable" label="Clearable" clearable />
             <Divider variant="inset" />
-            <FormDateRangeField
-              icon="today"
-              name="disabled"
-              label="Disabled"
-              disabled
-            />
+            <FormDateRangeField icon="today" name="disabled" label="Disabled" disabled />
           </React.Fragment>
         );
       }}

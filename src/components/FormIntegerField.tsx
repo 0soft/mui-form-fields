@@ -26,6 +26,7 @@ const FormIntegerField: React.SFC<FormIntegerFieldProps> = ({
       label={label}
       validate={validate}
       parse="integer"
+      format="integer"
       disabled={disabled}
       InputProps={{
         inputComponent: IntegerMask,

@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Divider } from '@material-ui/core';
-import {
-  DatePicker,
-  DateTimePicker,
-  DateRangePicker,
-  WeekPicker,
-} from '../src/components/Pickers';
+import { DatePicker, DateTimePicker, DateRangePicker, WeekPicker } from '../src/components/Pickers';
 
 const defaulStyleDivider = { marginTop: '15px', marginBottom: '10px' };
 
@@ -47,11 +42,7 @@ storiesOf('Pickers', module)
         <Divider style={defaulStyleDivider} />
         <DateTimePicker icon="today" label="Disabled" disabled />
         <Divider style={defaulStyleDivider} />
-        <DateTimePicker
-          icon="today"
-          label="Set Value"
-          value="2019-02-26 09:00:00"
-        />
+        <DateTimePicker icon="today" label="Set Value" value="2019-02-26 09:00:00" />
         <Divider style={defaulStyleDivider} />
         <DateTimePicker icon="today" label="Invalid Value" value="ADDDs" />
         <Divider style={defaulStyleDivider} />

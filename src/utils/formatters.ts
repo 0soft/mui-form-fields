@@ -2,9 +2,10 @@ import { getFnc } from './helpers';
 import handleParser from './parsers';
 
 export type FieldFormatter = (value: any) => any | undefined;
-export type FormatterOptions = 'percentage' | 'money' | 'string' | 'date' | 'dateTime';
+export type FormatterOptions = 'percentage' | 'money' | 'string' | 'date' | 'dateTime' | 'integer';
 
 interface Formatters {
+  integer: FieldFormatter;
   percentage: FieldFormatter;
   money: FieldFormatter;
   string: FieldFormatter;
@@ -22,6 +23,7 @@ interface DecimalFormatterOptions {
   decimalDelimiter?: string;
 }
 
+const integerParser = handleParser('integer')!;
 const floatParser = handleParser('float')!;
 const dateParser = handleParser('date')!;
 const dateTimeParser = handleParser('dateTime')!;
@@ -52,6 +54,9 @@ const decimalFormatter = (val?: number, options?: DecimalFormatterOptions): stri
 const formatters: Formatters = {
   percentage: (value: any) => {
     return decimalFormatter(floatParser(value), { suffix: '%', lengthDecimal: 0 });
+  },
+  integer: (value: any) => {
+    return decimalFormatter(integerParser(value), { lengthDecimal: 0 });
   },
   money: (value: any) => {
     return decimalFormatter(floatParser(value), { prefix: '$ ' });

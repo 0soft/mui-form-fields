@@ -35,12 +35,7 @@ storiesOf('FormChipField', module).add('default', () => {
       render={({ values }: { values: any }) => {
         return (
           <React.Fragment>
-            <FormChipField
-              icon="store"
-              name="stores"
-              label="Stores"
-              value={['A', 'B', 'C']}
-            />
+            <FormChipField icon="store" name="stores" label="Stores" value={['A', 'B', 'C']} />
             <Divider variant="inset" />
           </React.Fragment>
         );

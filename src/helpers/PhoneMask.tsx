@@ -1,27 +1,10 @@
 import * as React from 'react';
-import MaskedInput from 'react-text-mask';
+import NumberFormat from 'react-number-format';
 
 const PhoneMask = (props: any) => {
   const { inputRef, ...other } = props;
 
-  const mask = [
-    '(',
-    /[1-9]/,
-    /\d/,
-    ')',
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    '-',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-  ];
-
-  return <MaskedInput {...other} ref={inputRef} guide={false} mask={mask} />;
+  return <NumberFormat format="(###) ###-####" mask="_" ref={inputRef} {...other} />;
 };
 
 export default PhoneMask;

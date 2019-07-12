@@ -25,9 +25,7 @@ const FormButtonField: React.SFC<FormButtonFieldProps> = ({
       name={name}
       render={() => {
         return (
-          <div
-            style={{ width: '100%', display: 'flex', flexDirection: 'column' }}
-          >
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
                 marginBottom: '0.3125rem',

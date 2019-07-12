@@ -43,13 +43,7 @@ storiesOf('FormButtonField', module).add('default', () => {
               onClick={() => alert('Clicked')}
             />
             <Divider variant="inset" />
-            <FormButtonField
-              name="disabled"
-              label="Disabled"
-              text="Stop"
-              icon=""
-              disabled
-            />
+            <FormButtonField name="disabled" label="Disabled" text="Stop" icon="" disabled />
           </React.Fragment>
         );
       }}

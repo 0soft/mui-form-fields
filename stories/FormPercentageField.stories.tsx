@@ -34,11 +34,7 @@ storiesOf('FormPercentageField', module).add('default', () => {
       render={() => {
         return (
           <React.Fragment>
-            <FormPercentageField
-              icon="attach_money"
-              name="percentage"
-              label="Percentage"
-            />
+            <FormPercentageField icon="attach_money" name="percentage" label="Percentage" />
           </React.Fragment>
         );
       }}

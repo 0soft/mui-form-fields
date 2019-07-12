@@ -40,30 +40,17 @@ const FormField: React.SFC<FormFieldProps> = ({
   alignItems,
 }) => {
   return (
-    <ListItem
-      className={className}
-      style={{ alignItems, paddingRight: '24px' }}
-    >
+    <ListItem className={className} style={{ alignItems, paddingRight: '24px' }}>
       {hasIcon && (
         <ListItemIcon style={{ paddingTop: iconPadding }}>
-          {icon !== undefined ? (
-            typeof icon === 'string' ? (
-              <Icon>{icon}</Icon>
-            ) : (
-              icon
-            )
-          ) : (
-            <span />
-          )}
+          {icon !== undefined ? typeof icon === 'string' ? <Icon>{icon}</Icon> : icon : <span />}
         </ListItemIcon>
       )}
       <Field
         name={name}
         format={typeof format === 'string' ? handleFormatter(format) : format}
         parse={typeof parse === 'string' ? handleParser(parse) : parse}
-        validate={
-          typeof validate === 'string' ? handleValidator(validate) : validate
-        }
+        validate={typeof validate === 'string' ? handleValidator(validate) : validate}
         type={type}
         render={({ input, meta }) => {
           return render({ input, meta });

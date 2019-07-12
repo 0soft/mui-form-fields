@@ -38,19 +38,9 @@ storiesOf('FormTextField', module)
             <React.Fragment>
               <FormTextField icon="person" name="name" label="Name" />
               <Divider variant="inset" />
-              <FormTextField
-                icon="stop"
-                name="disabled"
-                label="Disabled"
-                disabled
-              />
+              <FormTextField icon="stop" name="disabled" label="Disabled" disabled />
               <Divider variant="inset" />
-              <FormTextField
-                icon="notes"
-                name="multiline"
-                label="Multiline"
-                multiline
-              />
+              <FormTextField icon="notes" name="multiline" label="Multiline" multiline />
             </React.Fragment>
           );
         }}
@@ -64,26 +54,11 @@ storiesOf('FormTextField', module)
         render={({ values }: { values: any }) => {
           return (
             <React.Fragment>
-              <FormTextField
-                icon="person"
-                name="name"
-                label="Name"
-                validate="required"
-              />
+              <FormTextField icon="person" name="name" label="Name" validate="required" />
               <Divider variant="inset" />
-              <FormTextField
-                icon="email"
-                name="email"
-                label="E-mail"
-                validate="required | email"
-              />
+              <FormTextField icon="email" name="email" label="E-mail" validate="required | email" />
               <Divider variant="inset" />
-              <FormTextField
-                icon="stop"
-                name="disabled"
-                label="Disabled"
-                disabled
-              />
+              <FormTextField icon="stop" name="disabled" label="Disabled" disabled />
               <Divider variant="inset" />
               <FormTextField
                 icon="minimize"

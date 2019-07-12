@@ -40,25 +40,11 @@ storiesOf('FormDateTimeField', module).add('default', () => {
           <React.Fragment>
             <FormDateTimeField icon="schedule" name="date" label="Datepicker" />
             <Divider variant="inset" />
-            <FormDateTimeField
-              icon="today"
-              name="date_initial"
-              label="Initial Date"
-            />
+            <FormDateTimeField icon="today" name="date_initial" label="Initial Date" />
             <Divider variant="inset" />
-            <FormDateTimeField
-              icon="today"
-              name="clearable"
-              label="Clearable"
-              clearable
-            />
+            <FormDateTimeField icon="today" name="clearable" label="Clearable" clearable />
             <Divider variant="inset" />
-            <FormDateTimeField
-              icon="today"
-              name="disabled"
-              label="Disabled"
-              disabled
-            />
+            <FormDateTimeField icon="today" name="disabled" label="Disabled" disabled />
             <Divider variant="inset" />
             <FormDateTimeField icon="today" name="ampm" label="AM / PM" ampm />
           </React.Fragment>
