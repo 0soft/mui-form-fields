@@ -24,30 +24,30 @@ $ npm i --save mui-form-fields
 
 This project also require the following peer dependencies:
 
-| Dependency                                                             | Version    |
-| ---------------------------------------------------------------------- | ---------- |
-| [@date-io/core](https://www.npmjs.com/package/@date-io/core)           | `^1.3.6`   |
-| [@date-io/moment](https://www.npmjs.com/package/@date-io/moment)       | `^1.3.6`   |
-| [@material-ui/core](https://www.npmjs.com/package/@material-ui/core)   | `^4.1.0`   |
-| [@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons) | `^4.1.0`   |
-| [classnames](https://www.npmjs.com/package/classnames)                 | `^2.2.6`   |
-| [core-js](https://www.npmjs.com/package/core-js)                       | `^3.1.3`   |
-| [css-vendor](https://www.npmjs.com/package/css-vendor)                 | `^2.0.2`   |
-| [final-form](https://www.npmjs.com/package/final-form)                 | `^4.13.1`  |
-| [is-plain-object](https://www.npmjs.com/package/is-plain-object)       | `^3.0.0`   |
-| [jss](https://www.npmjs.com/package/jss)                               | `^9.8.7`   |
-| [moment](https://www.npmjs.com/package/moment)                         | `^2.24.0`  |
-| [react](https://www.npmjs.com/package/react)                           | `>=16.8.6` |
-| [react-dom](https://www.npmjs.com/package/react-dom)                   | `>=16.8.6` |
-| [react-dropzone](https://www.npmjs.com/package/react-dropzone)         | `^10.1.5`  |
-| [react-final-form](https://www.npmjs.com/package/react-final-form)     | `^6.0.1`   |
-| [react-text-mask](https://www.npmjs.com/package/react-text-mask)       | `^5.4.3`   |
-| [text-mask-addons](https://www.npmjs.com/package/text-mask-addons)     | `^3.8.0`   |
+| Dependency                                                               | Version    |
+| ------------------------------------------------------------------------ | ---------- |
+| [@date-io/core](https://www.npmjs.com/package/@date-io/core)             | `^1.3.6`   |
+| [@date-io/moment](https://www.npmjs.com/package/@date-io/moment)         | `^1.3.6`   |
+| [@material-ui/core](https://www.npmjs.com/package/@material-ui/core)     | `^4.1.0`   |
+| [@material-ui/icons](https://www.npmjs.com/package/@material-ui/icons)   | `^4.1.0`   |
+| [classnames](https://www.npmjs.com/package/classnames)                   | `^2.2.6`   |
+| [core-js](https://www.npmjs.com/package/core-js)                         | `^3.1.3`   |
+| [css-vendor](https://www.npmjs.com/package/css-vendor)                   | `^2.0.2`   |
+| [final-form](https://www.npmjs.com/package/final-form)                   | `^4.13.1`  |
+| [is-plain-object](https://www.npmjs.com/package/is-plain-object)         | `^3.0.0`   |
+| [jss](https://www.npmjs.com/package/jss)                                 | `^9.8.7`   |
+| [moment](https://www.npmjs.com/package/moment)                           | `^2.24.0`  |
+| [react](https://www.npmjs.com/package/react)                             | `>=16.8.6` |
+| [react-dom](https://www.npmjs.com/package/react-dom)                     | `>=16.8.6` |
+| [react-dropzone](https://www.npmjs.com/package/react-dropzone)           | `^10.1.5`  |
+| [react-final-form](https://www.npmjs.com/package/react-final-form)       | `^6.0.1`   |
+| [react-select](https://www.npmjs.com/package/react-select)               | `^3.0.4`   |
+| [react-number-format](https://www.npmjs.com/package/react-number-format) | `^4.0.8`   |
 
 Install all of them via:
 
 ```bash
-$ npm i --save @date-io/core @date-io/moment @material-ui/core @material-ui/icons classnames core-js css-vendor final-form is-plain-object jss moment react react-dom react-dropzone react-final-form react-text-mask text-mask-addons
+$ npm i --save @date-io/core @date-io/moment @material-ui/core @material-ui/icons classnames core-js css-vendor final-form is-plain-object jss moment react react-dom react-dropzone react-final-form react-select react-number-format
 ```
 
 ## Examples
