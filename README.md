@@ -10,11 +10,10 @@
 [![Build Status](https://travis-ci.org/0soft/mui-form-fields.svg?branch=master)](https://travis-ci.org/0soft/mui-form-fields)
 [![Coverage Status](https://coveralls.io/repos/github/0soft/mui-form-fields/badge.svg?branch=master)](https://coveralls.io/github/0soft/mui-form-fields?branch=master)
 
-Material UI + FinalForm Fields, packaged and ready to go! :package:
-
-MUI Form Fields help you build beautiful material-ui components with the
-mninimal amount of code possible. This way you can keep focusing on your logic.
-:dart:
+MUI Form Fields was developed by [ZeroSoft](https://zerosoft.com.br/en/) to help
+us build lots of forms to our clients with ease. We based ourselves on
+[Material UI](https://material-ui.com/) and made the most so we can build a
+form with the minimum amount of code possible. :package:
 
 ## Installation
 
