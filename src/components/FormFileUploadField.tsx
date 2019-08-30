@@ -9,7 +9,7 @@ import FormField from './FormField';
 interface FormFileUploadFieldProps {
   icon?: string | React.ReactElement;
   name: string;
-  label: string;
+  label: string | React.ReactNode;
   disabled?: boolean;
   required?: boolean;
   className?: string;

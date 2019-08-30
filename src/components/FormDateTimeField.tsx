@@ -11,7 +11,7 @@ interface FormDateTimeFieldProps {
   hasIcon?: boolean;
   name: string;
   validate?: FieldValidator | string;
-  label: string;
+  label: string | React.ReactNode;
   disabled?: boolean;
   clearable?: boolean;
   max?: MaterialUiPickersDate;
