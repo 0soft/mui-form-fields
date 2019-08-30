@@ -11,3 +11,11 @@ install:
 script:
   - npm test
   - npm run coveralls
+deploy:
+  provider: npm
+  email: nihey.takizawa@gmail.com
+  api_key:
+    secure: nP8yK78jQPqxhlmTrkqfrNuVHQwzT9OU2bdM9jBtyjBL8/RGCxmZ+V1jnpxuJEXBK6E6NniQSv1VXnPexiIi2EaFIWSfFGgMAS8llDRZI7UjXQwctBDJI/cfS3wQ+2+KnHeO75C3W5TyK36npDu9lw7SEGwtuQl7XKDuDtVHRB4u4xtUKp1LzA96qWSmjxUYPz8lP7ObdneJKurG9ybecc620810/bPoJV1V2EaMEXvQxuWSpJXUCZVQHKI4mRLKRxKSn+zJyoGGPljwqi7uGMx1ySMGAwA94w9mXrgzfvAbLrIwL4fAuMpTR/NQh5UHKTERWqE5bLvTKYAChBWkdapZRoUieU3NMQRvBy5IXZ7kri8782sANy7R6bXEH7+v35y5veYFk9m0FOzBA3f5JdoKhujsJkzU0RWfJxzInYQ33ocP1y6r+PqcSrkk1ge6ULJdJ5wcZDKDtVDzmhb+M2I2HwAvs9NL3iuRNPzNJeCF/W4XsV2GI+11dmlkkndDSykVfP44oqSJbLwr+YA8XHq9qmX/e9hUpBTO/ydhFFjZ/GQMKrQyzmH6JFmP/BhrhHOO86QyvGwg6C+gOqJkW0Ubaey9Ns9vVHln/KRhfeRywhH6hnrXqKTLxo4PynoNnP4Om37RkVAcWvSkH37tYSoMMvaLdPn9436lZS3OWJs=
+  on:
+    tags: true
+    repo: 0soft/mui-form-fields
