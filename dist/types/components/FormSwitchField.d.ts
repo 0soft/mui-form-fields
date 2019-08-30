@@ -2,7 +2,7 @@ import * as React from 'react';
 interface FormSwitchFieldProps {
     icon?: string | React.ReactElement;
     name: string;
-    label: string;
+    label: string | React.ReactNode;
     disabled?: boolean;
     onClick?: React.MouseEventHandler;
     placement?: 'start' | 'end' | 'top' | 'bottom';

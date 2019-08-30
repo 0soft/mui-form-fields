@@ -8,7 +8,7 @@ interface FormSelectFieldProps {
     icon?: string | React.ReactElement;
     hasIcon?: boolean;
     name: string;
-    label: string;
+    label: string | React.ReactNode;
     disabled?: boolean;
     options: Options[];
     validate?: FieldValidator | string;

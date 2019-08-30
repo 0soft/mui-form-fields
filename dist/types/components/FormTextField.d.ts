@@ -7,7 +7,7 @@ interface FormTextFieldProps {
     format?: FieldFormatter | FormatterOptions;
     parse?: FieldParser | ParserOptions;
     validate?: FieldValidator | string;
-    label: string;
+    label: string | React.ReactNode;
     placeholder?: string;
     value?: Array<string | number | boolean> | string | number | boolean;
     disabled?: boolean;

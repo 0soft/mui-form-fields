@@ -3,7 +3,7 @@ interface FormChipFieldProps {
     icon?: string | React.ReactElement;
     hasIcon?: boolean;
     name: string;
-    label: string;
+    label: string | React.ReactNode;
     variant?: 'outlined' | 'default' | undefined;
     value?: Array<string | number | boolean> | string | number | boolean;
     margin?: 'dense' | 'none' | 'normal';
