@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import * as React from 'react';
-import { Form } from 'react-final-form';
+import { Form, FormRenderProps } from 'react-final-form';
 import { Mutator } from 'final-form';
 
 const styles = (theme: Theme) =>
@@ -45,7 +45,7 @@ interface FormDialogProps extends WithStyles<typeof styles> {
   open: boolean;
   onClose: () => any;
   size?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
-  children: any;
+  children?: any;
   dividers?: boolean;
   initial?: object;
   closeLabel?: any;
@@ -53,6 +53,7 @@ interface FormDialogProps extends WithStyles<typeof styles> {
   onSubmit: () => any;
   hasDialogTitle?: boolean;
   formMutators?: { [key: string]: Mutator };
+  render?: (props: FormRenderProps<any>) => React.ReactNode;
 }
 
 const FormDialog: React.FunctionComponent<FormDialogProps> = ({
@@ -69,6 +70,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   onSubmit,
   hasDialogTitle = true,
   formMutators,
+  render,
 }) => {
   const childrenCount = React.Children.count(children);
   return (
@@ -76,8 +78,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
       onSubmit={onSubmit}
       initialValues={initial}
       mutators={formMutators}
-      render={({ handleSubmit, form }) => {
-        const { mutators } = form;
+      render={({ handleSubmit, ...rest }) => {
         return (
           <Dialog scroll="body" open={open} onClose={onClose} fullWidth maxWidth={size}>
             <form onSubmit={handleSubmit}>
@@ -90,14 +91,16 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
                 </DialogTitle>
               )}
               {dividers && <Divider />}
-              {React.Children.map(children, (c: any, index: number): any => {
-                return (
-                  <>
-                    {React.cloneElement(c, { mutators })}
-                    {dividers && index !== childrenCount - 1 && <Divider />}
-                  </>
-                );
-              })}
+              {render != null
+                ? render({ handleSubmit, ...rest })
+                : React.Children.map(children, (c: any, index: number): any => {
+                    return (
+                      <>
+                        {c}
+                        {dividers && index !== childrenCount - 1 && <Divider />}
+                      </>
+                    );
+                  })}
               {dividers && <Divider />}
               <DialogActions className={classes.action}>
                 <Button className={classes.actionButton} onClick={onClose}>
