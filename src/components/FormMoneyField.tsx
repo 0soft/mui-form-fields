@@ -6,7 +6,7 @@ import { MoneyMask } from '../helpers';
 interface FormMoneyFieldProps {
   icon?: string | React.ReactElement;
   name: string;
-  label: string;
+  label: string | React.ReactNode;
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;

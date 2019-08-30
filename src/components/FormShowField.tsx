@@ -7,7 +7,7 @@ interface FormShowFieldProps {
   hasIcon?: boolean;
   name: string;
   format?: FieldFormatter | FormatterOptions;
-  label: string;
+  label: string | React.ReactNode;
   value?: Array<string | number | boolean> | string | number | boolean;
   multiline?: boolean;
   rows?: string | number;

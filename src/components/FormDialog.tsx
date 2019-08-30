@@ -11,6 +11,7 @@ import {
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 import { Form } from 'react-final-form';
+import { Mutator } from 'final-form';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -40,16 +41,18 @@ const styles = (theme: Theme) =>
   });
 
 interface FormDialogProps extends WithStyles<typeof styles> {
-  title: string;
+  title?: string;
   open: boolean;
   onClose: () => any;
-  size: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  size?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   children: any;
   dividers?: boolean;
   initial?: object;
   closeLabel?: any;
   submitLabel?: any;
   onSubmit: () => any;
+  hasDialogTitle?: boolean;
+  formMutators?: { [key: string]: Mutator };
 }
 
 const FormDialog: React.FunctionComponent<FormDialogProps> = ({
@@ -64,29 +67,33 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   closeLabel = 'Close',
   submitLabel = 'Save',
   onSubmit,
+  hasDialogTitle = true,
+  formMutators,
 }) => {
   const childrenCount = React.Children.count(children);
   return (
     <Form
       onSubmit={onSubmit}
       initialValues={initial}
-      render={({ handleSubmit }) => {
+      mutators={formMutators}
+      render={({ handleSubmit, form }) => {
+        const { mutators } = form;
         return (
           <Dialog scroll="body" open={open} onClose={onClose} fullWidth maxWidth={size}>
             <form onSubmit={handleSubmit}>
-              <DialogTitle className={classes.title} disableTypography>
-                <Typography variant="h6">{title}</Typography>
-                {onClose ? (
+              {hasDialogTitle && (
+                <DialogTitle className={classes.title} disableTypography>
+                  {title && <Typography variant="h6">{title}</Typography>}
                   <IconButton onClick={onClose} className={classes.closeButton}>
                     <Icon>close</Icon>
                   </IconButton>
-                ) : null}
-              </DialogTitle>
+                </DialogTitle>
+              )}
               {dividers && <Divider />}
               {React.Children.map(children, (c: any, index: number): any => {
                 return (
                   <>
-                    {c}
+                    {React.cloneElement(c, { mutators })}
                     {dividers && index !== childrenCount - 1 && <Divider />}
                   </>
                 );
