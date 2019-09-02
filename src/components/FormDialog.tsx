@@ -12,6 +12,7 @@ import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/s
 import * as React from 'react';
 import { Form, FormRenderProps } from 'react-final-form';
 import { Mutator, FormApi, SubmissionErrors } from 'final-form';
+import Loader from './Loader';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -56,6 +57,8 @@ interface FormDialogProps extends WithStyles<typeof styles> {
     callback?: (errors?: SubmissionErrors) => void
   ) => SubmissionErrors | Promise<SubmissionErrors | undefined> | undefined | void;
   hasDialogTitle?: boolean;
+  autoReset?: boolean;
+  loadingMessage?: string;
   formMutators?: { [key: string]: Mutator };
   render?: (props: FormRenderProps<any>) => React.ReactNode;
 }
@@ -73,23 +76,42 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   submitLabel = 'Save',
   onSubmit,
   hasDialogTitle = true,
+  autoReset = true,
+  loadingMessage = `Loading...`,
   formMutators,
   render,
 }) => {
   const childrenCount = React.Children.count(children);
   return (
     <Form
-      onSubmit={onSubmit}
+      onSubmit={async (values, form, callback) => {
+        await onSubmit(values, form, callback);
+
+        if (autoReset) {
+          form.reset();
+        }
+      }}
       initialValues={initial}
       mutators={formMutators}
-      render={({ handleSubmit, ...rest }) => {
+      render={({ handleSubmit, form, submitting, ...rest }) => {
+        const onCloseReset = () => {
+          if (onClose) {
+            onClose();
+          }
+
+          if (autoReset) {
+            form.reset();
+          }
+        };
+
         return (
-          <Dialog scroll="body" open={open} onClose={onClose} fullWidth maxWidth={size}>
+          <Dialog scroll="body" open={open} onClose={onCloseReset} fullWidth maxWidth={size}>
+            <Loader loading={submitting} text={loadingMessage} />
             <form onSubmit={handleSubmit}>
               {hasDialogTitle && (
                 <DialogTitle className={classes.title} disableTypography>
                   {title && <Typography variant="h6">{title}</Typography>}
-                  <IconButton onClick={onClose} className={classes.closeButton}>
+                  <IconButton onClick={onCloseReset} className={classes.closeButton}>
                     <Icon>close</Icon>
                   </IconButton>
                 </DialogTitle>
@@ -107,7 +129,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
                   })}
               {dividers && <Divider />}
               <DialogActions className={classes.action}>
-                <Button className={classes.actionButton} onClick={onClose}>
+                <Button className={classes.actionButton} onClick={onCloseReset}>
                   {closeLabel}
                 </Button>
                 <Button

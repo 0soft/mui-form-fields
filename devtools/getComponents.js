@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ignored = new Set(['FormField', 'FormDialog']);
+const ignored = new Set(['FormField', 'FormDialog', 'Loader']);
 module.exports = () => {
   const componentsPath = path.resolve(__dirname, '..', 'src', 'components');
   return fs

@@ -121,7 +121,11 @@ Even complex dialogs can be mounted as easily as:
           size="sm"
           title="Create User"
           onClose={() => setOpen(false)}
-          onSubmit={(...args) => setOpen(false)}
+          onSubmit={async (...args) => {
+            return new Promise((resolve) => {
+              setTimeout(() => setOpen(false), 2000);
+            })
+          }}
           open={open}
           dividers
         >
