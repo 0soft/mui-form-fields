@@ -11,7 +11,7 @@ import {
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 import { Form, FormRenderProps } from 'react-final-form';
-import { Mutator } from 'final-form';
+import { Mutator, FormApi, SubmissionErrors } from 'final-form';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -50,7 +50,11 @@ interface FormDialogProps extends WithStyles<typeof styles> {
   initial?: object;
   closeLabel?: any;
   submitLabel?: any;
-  onSubmit: () => any;
+  onSubmit: (
+    values: any,
+    form: FormApi<any>,
+    callback?: (errors?: SubmissionErrors) => void
+  ) => SubmissionErrors | Promise<SubmissionErrors | undefined> | undefined | void;
   hasDialogTitle?: boolean;
   formMutators?: { [key: string]: Mutator };
   render?: (props: FormRenderProps<any>) => React.ReactNode;
