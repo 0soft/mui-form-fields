@@ -46,7 +46,7 @@ This project also require the following peer dependencies:
 Install all of them via:
 
 ```bash
-$ npm i --save @date-io/core@^1.3.6 @date-io/moment@^1.3.6 @material-ui/core@^4.1.0 @material-ui/icons@^4.1.0 classnames@^2.2.6 core-js@^3.1.3 css-vendor@^2.0.2 final-form@^4.13.1 is-plain-object@^3.0.0 jss@^9.8.7 moment@^2.24.0 react@>=16.8.6 react-dom@>=16.8.6 react-dropzone@^10.1.5 react-final-form@^6.0.1 react-select@^3.0.4 react-number-format@^4.0.8
+$ npm i --save @date-io/core@^1.3.6 @date-io/moment@^1.3.6 @material-ui/core@^4.1.0 @material-ui/icons@^4.1.0 classnames@^2.2.6 core-js@^3.1.3 css-vendor@^2.0.2 final-form@^4.13.1 is-plain-object@^3.0.0 jss moment@^2.24.0 react@>=16.8.6 react-dom@>=16.8.6 react-dropzone@^10.1.5 react-final-form@^6.0.1 react-select@^3.0.4 react-number-format@^4.0.8
 ```
 
 ## Examples
