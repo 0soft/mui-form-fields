@@ -123,7 +123,10 @@ Even complex dialogs can be mounted as easily as:
           onClose={() => setOpen(false)}
           onSubmit={async (...args) => {
             return new Promise((resolve) => {
-              setTimeout(() => setOpen(false), 2000);
+              setTimeout(() => {
+                resolve();
+                setOpen(false);
+              }, 2000);
             })
           }}
           open={open}

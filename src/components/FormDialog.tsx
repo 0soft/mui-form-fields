@@ -118,7 +118,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
               )}
               {dividers && <Divider />}
               {render != null
-                ? render({ handleSubmit, ...rest })
+                ? render({ handleSubmit, form, submitting, ...rest })
                 : React.Children.map(children, (c: any, index: number): any => {
                     return (
                       <>

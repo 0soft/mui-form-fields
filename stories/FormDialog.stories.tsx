@@ -26,7 +26,11 @@ storiesOf('FormDialog', module)
         size="sm"
         title="Create User"
         onClose={() => console.log('xxx')}
-        onSubmit={(...args) => console.log(args)}
+        onSubmit={async (...args) => {
+          return new Promise(resolve => {
+            return setTimeout(resolve, 2000);
+          });
+        }}
         open
         dividers
       >

@@ -6,7 +6,7 @@ interface FormButtonFieldProps {
   icon?: string | React.ReactElement;
   name: string;
   label: string | React.ReactNode;
-  text: string;
+  text: string | React.ReactNode;
   disabled?: boolean;
   onClick?: (() => any) | undefined;
 }

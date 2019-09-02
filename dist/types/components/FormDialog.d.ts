@@ -15,10 +15,12 @@ interface FormDialogProps extends WithStyles<typeof styles> {
     submitLabel?: any;
     onSubmit: (values: any, form: FormApi<any>, callback?: (errors?: SubmissionErrors) => void) => SubmissionErrors | Promise<SubmissionErrors | undefined> | undefined | void;
     hasDialogTitle?: boolean;
+    autoReset?: boolean;
+    loadingMessage?: string;
     formMutators?: {
         [key: string]: Mutator;
     };
     render?: (props: FormRenderProps<any>) => React.ReactNode;
 }
-declare const _default: React.ComponentType<Pick<React.PropsWithChildren<FormDialogProps>, "render" | "title" | "children" | "onSubmit" | "open" | "size" | "initial" | "onClose" | "dividers" | "closeLabel" | "submitLabel" | "hasDialogTitle" | "formMutators"> & import("@material-ui/core").StyledComponentProps<"title" | "action" | "actionButton" | "closeButton">>;
+declare const _default: React.ComponentType<Pick<React.PropsWithChildren<FormDialogProps>, "title" | "children" | "initial" | "onSubmit" | "size" | "open" | "onClose" | "dividers" | "closeLabel" | "submitLabel" | "hasDialogTitle" | "autoReset" | "loadingMessage" | "formMutators" | "render"> & import("@material-ui/core").StyledComponentProps<"title" | "action" | "actionButton" | "closeButton">>;
 export default _default;
