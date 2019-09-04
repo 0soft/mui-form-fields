@@ -51,6 +51,8 @@ interface FormDialogProps extends WithStyles<typeof styles> {
   initial?: object;
   closeLabel?: any;
   submitLabel?: any;
+  validate?: (values: any) => any;
+  validateOnBlur?: boolean;
   onSubmit: (
     values: any,
     form: FormApi<any>,
@@ -72,6 +74,8 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   classes,
   dividers = false,
   initial = {},
+  validate,
+  validateOnBlur = false,
   closeLabel = 'Close',
   submitLabel = 'Save',
   onSubmit,
@@ -93,7 +97,9 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
       }}
       initialValues={initial}
       mutators={formMutators}
-      render={({ handleSubmit, form, submitting, ...rest }) => {
+      validate={validate}
+      validateOnBlur={validateOnBlur}
+      render={({ handleSubmit, form, invalid, submitting, ...rest }) => {
         const onCloseReset = () => {
           if (onClose) {
             onClose();
@@ -118,7 +124,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
               )}
               {dividers && <Divider />}
               {render != null
-                ? render({ handleSubmit, form, submitting, ...rest })
+                ? render({ handleSubmit, form, invalid, submitting, ...rest })
                 : React.Children.map(children, (c: any, index: number): any => {
                     return (
                       <>
@@ -137,6 +143,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
                   color="primary"
                   variant="contained"
                   className={classes.actionButton}
+                  disabled={invalid}
                 >
                   {submitLabel}
                 </Button>
