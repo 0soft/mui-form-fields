@@ -88,7 +88,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
         await onSubmit(values, form, callback);
 
         if (autoReset) {
-          form.reset();
+          setTimeout(form.reset);
         }
       }}
       initialValues={initial}
@@ -100,7 +100,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
           }
 
           if (autoReset) {
-            form.reset();
+            setTimeout(form.reset);
           }
         };
 
