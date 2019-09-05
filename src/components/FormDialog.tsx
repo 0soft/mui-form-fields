@@ -59,6 +59,7 @@ interface FormDialogProps extends WithStyles<typeof styles> {
     callback?: (errors?: SubmissionErrors) => void
   ) => SubmissionErrors | Promise<SubmissionErrors | undefined> | undefined | void;
   hasDialogTitle?: boolean;
+  hasDialogActions?: boolean;
   autoReset?: boolean;
   loadingMessage?: string;
   formMutators?: { [key: string]: Mutator };
@@ -80,6 +81,7 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
   submitLabel = 'Save',
   onSubmit,
   hasDialogTitle = true,
+  hasDialogActions = true,
   autoReset = true,
   loadingMessage = `Loading...`,
   formMutators,
@@ -134,20 +136,22 @@ const FormDialog: React.FunctionComponent<FormDialogProps> = ({
                     );
                   })}
               {dividers && <Divider />}
-              <DialogActions className={classes.action}>
-                <Button className={classes.actionButton} onClick={onCloseReset}>
-                  {closeLabel}
-                </Button>
-                <Button
-                  type="submit"
-                  color="primary"
-                  variant="contained"
-                  className={classes.actionButton}
-                  disabled={invalid}
-                >
-                  {submitLabel}
-                </Button>
-              </DialogActions>
+              {hasDialogActions && (
+                <DialogActions className={classes.action}>
+                  <Button className={classes.actionButton} onClick={onCloseReset}>
+                    {closeLabel}
+                  </Button>
+                  <Button
+                    type="submit"
+                    color="primary"
+                    variant="contained"
+                    className={classes.actionButton}
+                    disabled={invalid}
+                  >
+                    {submitLabel}
+                  </Button>
+                </DialogActions>
+              )}
             </form>
           </Dialog>
         );
