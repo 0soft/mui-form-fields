@@ -34,7 +34,7 @@ storiesOf('FormDateField', module).add('default', () => {
     <FormTest
       onSubmit={(values: any, form: any) => {
         console.log(values, form);
-        form.reset();
+        setTimeout(form.reset);
       }}
       initial={{
         date_initial: '2019-02-26',
