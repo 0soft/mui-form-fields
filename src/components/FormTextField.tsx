@@ -72,7 +72,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
             value={setValue}
             disabled={disabled}
             error={Boolean(meta.touched && meta.error)}
-            helperText={meta.touched ? meta.error : helperText || ''}
+            helperText={meta.touched ? meta.error || helperText : helperText || ''}
             InputProps={{
               endAdornment: (
                 <InputAdornment

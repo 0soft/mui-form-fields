@@ -41,6 +41,13 @@ storiesOf('FormTextField', module)
               <FormTextField icon="stop" name="disabled" label="Disabled" disabled />
               <Divider variant="inset" />
               <FormTextField icon="notes" name="multiline" label="Multiline" multiline />
+              <Divider variant="inset" />
+              <FormTextField
+                icon="person"
+                name="helperText"
+                label="HelperText"
+                helperText="This is an example helper text"
+              />
             </React.Fragment>
           );
         }}
