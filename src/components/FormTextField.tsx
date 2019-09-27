@@ -25,7 +25,8 @@ interface FormTextFieldProps {
   multiline?: boolean;
   rows?: string | number;
   margin?: 'dense' | 'none' | 'normal';
-  InputProps?: Object;
+  InputProps?: object;
+  helperText?: string | React.ReactNode;
 }
 
 const FormTextField: React.SFC<FormTextFieldProps> = ({
@@ -43,6 +44,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
   InputProps = {},
   hasIcon = true,
   validate,
+  helperText,
 }) => {
   const lowerlabel = typeof label === 'string' ? label.toLowerCase() : 'information';
   placeholder = placeholder || `Please insert the ${lowerlabel} here...`;
@@ -70,7 +72,7 @@ const FormTextField: React.SFC<FormTextFieldProps> = ({
             value={setValue}
             disabled={disabled}
             error={Boolean(meta.touched && meta.error)}
-            helperText={meta.touched ? meta.error : ''}
+            helperText={meta.touched ? meta.error : helperText || ''}
             InputProps={{
               endAdornment: (
                 <InputAdornment

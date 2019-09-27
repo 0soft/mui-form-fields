@@ -10,6 +10,7 @@ interface FormPhoneFieldProps {
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;
+  helperText?: string | React.ReactNode;
 }
 
 const FormPhoneField: React.SFC<FormPhoneFieldProps> = ({
@@ -18,6 +19,7 @@ const FormPhoneField: React.SFC<FormPhoneFieldProps> = ({
   label,
   disabled,
   validate,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -26,6 +28,7 @@ const FormPhoneField: React.SFC<FormPhoneFieldProps> = ({
       label={label}
       validate={validate}
       disabled={disabled}
+      helperText={helperText}
       InputProps={{
         inputComponent: PhoneMask,
       }}

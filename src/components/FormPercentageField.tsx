@@ -10,6 +10,7 @@ interface FormPercentageFieldProps {
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;
+  helperText?: string | React.ReactNode;
 }
 
 const FormPercentageField: React.SFC<FormPercentageFieldProps> = ({
@@ -18,6 +19,7 @@ const FormPercentageField: React.SFC<FormPercentageFieldProps> = ({
   label,
   disabled,
   validate,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -28,6 +30,7 @@ const FormPercentageField: React.SFC<FormPercentageFieldProps> = ({
       disabled={disabled}
       parse="percentage"
       format="percentage"
+      helperText={helperText}
       InputProps={{
         inputComponent: PercentageMask,
       }}

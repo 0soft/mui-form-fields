@@ -10,6 +10,7 @@ interface FormMoneyFieldProps {
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;
+  helperText?: string | React.ReactNode;
 }
 
 const FormMoneyField: React.SFC<FormMoneyFieldProps> = ({
@@ -18,6 +19,7 @@ const FormMoneyField: React.SFC<FormMoneyFieldProps> = ({
   label,
   disabled,
   validate,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -28,6 +30,7 @@ const FormMoneyField: React.SFC<FormMoneyFieldProps> = ({
       disabled={disabled}
       parse="float"
       format="money"
+      helperText={helperText}
       InputProps={{
         inputComponent: MoneyMask,
       }}

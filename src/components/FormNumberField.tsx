@@ -10,6 +10,7 @@ interface FormNumberFieldProps {
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;
+  helperText?: string | React.ReactNode;
 }
 
 const FormNumberField: React.SFC<FormNumberFieldProps> = ({
@@ -18,6 +19,7 @@ const FormNumberField: React.SFC<FormNumberFieldProps> = ({
   label,
   disabled,
   validate,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -28,6 +30,7 @@ const FormNumberField: React.SFC<FormNumberFieldProps> = ({
       disabled={disabled}
       parse="float"
       format="money"
+      helperText={helperText}
       InputProps={{
         inputComponent: NumberMask,
       }}
