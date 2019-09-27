@@ -12,6 +12,7 @@ interface FormShowFieldProps {
   multiline?: boolean;
   rows?: string | number;
   margin?: 'dense' | 'none' | 'normal';
+  helperText?: string | React.ReactNode;
 }
 
 const FormShowField: React.SFC<FormShowFieldProps> = ({
@@ -24,6 +25,7 @@ const FormShowField: React.SFC<FormShowFieldProps> = ({
   multiline,
   rows,
   margin,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -37,6 +39,7 @@ const FormShowField: React.SFC<FormShowFieldProps> = ({
       rows={rows}
       margin={margin}
       disabled
+      helperText={helperText}
       InputProps={{ endAdornment: null }}
     />
   );

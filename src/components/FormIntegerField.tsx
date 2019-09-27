@@ -10,6 +10,7 @@ interface FormIntegerFieldProps {
   disabled?: boolean;
   className?: string;
   validate?: FieldValidator | string;
+  helperText?: string | React.ReactNode;
 }
 
 const FormIntegerField: React.SFC<FormIntegerFieldProps> = ({
@@ -18,6 +19,7 @@ const FormIntegerField: React.SFC<FormIntegerFieldProps> = ({
   label,
   disabled,
   validate,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -28,6 +30,7 @@ const FormIntegerField: React.SFC<FormIntegerFieldProps> = ({
       parse="integer"
       format="integer"
       disabled={disabled}
+      helperText={helperText}
       InputProps={{
         inputComponent: IntegerMask,
       }}

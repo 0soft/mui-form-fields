@@ -12,6 +12,7 @@ interface FormReadOnlyFieldProps {
   multiline?: boolean;
   rows?: string | number;
   margin?: 'dense' | 'none' | 'normal';
+  helperText?: string | React.ReactNode;
 }
 
 const FormReadOnlyField: React.SFC<FormReadOnlyFieldProps> = ({
@@ -24,6 +25,7 @@ const FormReadOnlyField: React.SFC<FormReadOnlyFieldProps> = ({
   multiline,
   rows,
   margin,
+  helperText,
 }) => {
   return (
     <FormTextField
@@ -36,6 +38,7 @@ const FormReadOnlyField: React.SFC<FormReadOnlyFieldProps> = ({
       multiline={multiline}
       rows={rows}
       margin={margin}
+      helperText={helperText}
       InputProps={{ endAdornment: null, readOnly: true }}
     />
   );
