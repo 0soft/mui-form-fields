@@ -10,6 +10,7 @@ interface FormShowFieldProps {
     multiline?: boolean;
     rows?: string | number;
     margin?: 'dense' | 'none' | 'normal';
+    helperText?: string | React.ReactNode;
 }
 declare const FormShowField: React.SFC<FormShowFieldProps>;
 export default FormShowField;

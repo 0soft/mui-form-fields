@@ -7,6 +7,7 @@ interface FormPercentageFieldProps {
     disabled?: boolean;
     className?: string;
     validate?: FieldValidator | string;
+    helperText?: string | React.ReactNode;
 }
 declare const FormPercentageField: React.SFC<FormPercentageFieldProps>;
 export default FormPercentageField;

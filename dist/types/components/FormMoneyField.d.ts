@@ -7,6 +7,7 @@ interface FormMoneyFieldProps {
     disabled?: boolean;
     className?: string;
     validate?: FieldValidator | string;
+    helperText?: string | React.ReactNode;
 }
 declare const FormMoneyField: React.SFC<FormMoneyFieldProps>;
 export default FormMoneyField;

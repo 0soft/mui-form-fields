@@ -7,6 +7,7 @@ interface FormNumberFieldProps {
     disabled?: boolean;
     className?: string;
     validate?: FieldValidator | string;
+    helperText?: string | React.ReactNode;
 }
 declare const FormNumberField: React.SFC<FormNumberFieldProps>;
 export default FormNumberField;

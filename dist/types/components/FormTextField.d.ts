@@ -14,7 +14,8 @@ interface FormTextFieldProps {
     multiline?: boolean;
     rows?: string | number;
     margin?: 'dense' | 'none' | 'normal';
-    InputProps?: Object;
+    InputProps?: object;
+    helperText?: string | React.ReactNode;
 }
 declare const FormTextField: React.SFC<FormTextFieldProps>;
 export default FormTextField;

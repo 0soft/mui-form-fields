@@ -7,6 +7,7 @@ interface FormIntegerFieldProps {
     disabled?: boolean;
     className?: string;
     validate?: FieldValidator | string;
+    helperText?: string | React.ReactNode;
 }
 declare const FormIntegerField: React.SFC<FormIntegerFieldProps>;
 export default FormIntegerField;

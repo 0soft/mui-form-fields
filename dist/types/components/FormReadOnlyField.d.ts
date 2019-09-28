@@ -10,6 +10,7 @@ interface FormReadOnlyFieldProps {
     multiline?: boolean;
     rows?: string | number;
     margin?: 'dense' | 'none' | 'normal';
+    helperText?: string | React.ReactNode;
 }
 declare const FormReadOnlyField: React.SFC<FormReadOnlyFieldProps>;
 export default FormReadOnlyField;
